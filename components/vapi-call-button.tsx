@@ -2,68 +2,42 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Phone, PhoneOff, Loader2 } from "lucide-react";
-
-// Vapi SDK types
-declare global {
-  interface Window {
-    Vapi: any;
-  }
-}
+import Vapi from "@vapi-ai/web";
 
 export default function VapiCallButton() {
+  const [isClient, setIsClient] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isCallActive, setIsCallActive] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const vapiRef = useRef<any>(null);
+  const vapiRef = useRef<Vapi | null>(null);
 
   const API_KEY = "a6bf2b51-7e6c-4c12-93d2-2d6301150f94";
   const ASSISTANT_ID = "6c303a44-cc3e-45ed-bf39-8b75ec7c2694";
 
-  // Load Vapi SDK from CDN
+  // Mark as client-side mounted
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    // Check if Vapi is already loaded
-    if (window.Vapi) {
-      setIsLoaded(true);
-      return;
-    }
-
-    // Create script element
-    const script = document.createElement("script");
-    script.src = "https://cdn.vapi.ai/web/vapi.js";
-    script.async = true;
-    script.onload = () => {
-      setIsLoaded(true);
-    };
-    script.onerror = () => {
-      setError("Failed to load Vapi SDK");
-    };
-
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    setIsClient(true);
   }, []);
 
-  // Initialize Vapi instance
+  // Initialize Vapi from NPM package
   useEffect(() => {
-    if (!isLoaded || !window.Vapi || vapiRef.current) return;
+    if (!isClient) return;
 
     try {
-      const vapi = new window.Vapi(API_KEY);
-      vapiRef.current = vapi;
-
+      console.log("Initializing Vapi...");
+      const vapi = new Vapi(API_KEY);
+      
       // Event listeners
       vapi.on("call-start", () => {
+        console.log("Vapi call started");
         setIsCallActive(true);
         setIsLoading(false);
         setError(null);
       });
 
       vapi.on("call-end", () => {
+        console.log("Vapi call ended");
         setIsCallActive(false);
         setIsLoading(false);
       });
@@ -74,11 +48,15 @@ export default function VapiCallButton() {
         setIsCallActive(false);
         setIsLoading(false);
       });
+
+      vapiRef.current = vapi;
+      setIsLoaded(true);
+      console.log("Vapi initialized successfully");
     } catch (err) {
       console.error("Failed to initialize Vapi:", err);
-      setError("Failed to initialize");
+      setError("Failed to initialize Vapi. Please refresh.");
     }
-  }, [isLoaded]);
+  }, [isClient]);
 
   const handleToggleCall = async () => {
     if (!vapiRef.current) {
@@ -108,7 +86,7 @@ export default function VapiCallButton() {
   };
 
   // Prevent hydration mismatch by not rendering until client-side
-  if (typeof window === "undefined") return null;
+  if (!isClient) return null;
 
   return (
     <>
