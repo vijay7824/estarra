@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef } from 'react';
+import { ReactNode } from 'react';
 import { useIntersectionObserver } from '@/hooks/use-intersection-observer';
 import { cn } from '@/lib/utils';
 
@@ -22,15 +22,14 @@ const animations = {
   rotateIn: 'opacity-0 rotate-6 animate-fade-in',
 };
 
-export function AnimatedSection({ 
-  children, 
-  animation = 'fadeIn', 
+export function AnimatedSection({
+  children,
+  animation = 'fadeIn',
   delay = 0,
   className,
-  threshold = 0.1 
+  threshold = 0.1
 }: AnimatedSectionProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const isVisible = useIntersectionObserver(ref, { threshold });
+  const { elementRef: ref, isIntersecting: isVisible } = useIntersectionObserver({ threshold });
 
   return (
     <div

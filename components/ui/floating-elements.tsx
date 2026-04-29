@@ -2,8 +2,17 @@ interface FloatingElementsProps {
   variant?: 'hero' | 'section' | 'minimal';
 }
 
+interface FloatingElement {
+  size: string;
+  color: string;
+  position: string;
+  animation: string;
+  blur: string;
+  delay?: string;
+}
+
 export function FloatingElements({ variant = 'section' }: FloatingElementsProps) {
-  const elements = {
+  const elements: Record<string, FloatingElement[]> = {
     hero: [
       { size: 'w-32 h-32', color: 'bg-white/10', position: 'top-20 left-10', animation: 'animate-pulse-slow', blur: 'blur-xl' },
       { size: 'w-48 h-48', color: 'bg-yellow-400/20', position: 'bottom-20 right-10', animation: 'animate-float', blur: 'blur-2xl' },
