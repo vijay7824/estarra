@@ -123,7 +123,7 @@ export default function VapiCallButton() {
         ) : (
           <>
             <Phone className="w-4 h-4" />
-            <span>📞 Talk to Agent</span>
+            <span> Talk to Agent</span>
           </>
         )}
       </button>
