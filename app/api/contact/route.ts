@@ -6,7 +6,19 @@ import { z } from 'zod';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const validatedData = insertContactInquirySchema.parse(body);
+    
+    // Map form fields to schema fields
+    const mappedData = {
+      firstName: body.name?.split(' ')[0] || body.name || '',
+      lastName: body.name?.split(' ').slice(1).join(' ') || '',
+      email: body.email || '',
+      phone: body.phone || '',
+      service: body.project || 'General Inquiry',
+      message: body.message || '',
+      inquiryType: 'contact',
+    };
+    
+    const validatedData = insertContactInquirySchema.parse(mappedData);
     const inquiry = await storage.createContactInquiry(validatedData);
     return NextResponse.json({ 
       success: true, 
@@ -21,6 +33,7 @@ export async function POST(request: Request) {
         errors: error.errors 
       }, { status: 400 });
     } else {
+      console.error('Contact form error:', error);
       return NextResponse.json({ 
         success: false, 
         message: "Failed to submit inquiry" 
