@@ -9,7 +9,7 @@ const services = [
   {
     icon: Home,
     title: "Residential Construction",
-    description: "Custom homes designed and built to your exact specifications with premium materials and craftsmanship.",
+    description: "Custom homes designed and built to your exact specifications. Structure starts from ₹1149/- per sqft, full finished starts from ₹1699/- per sqft.",
     color: "text-purple-600"
   },
   {
@@ -83,11 +83,6 @@ export default function ServicesSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">{service.title}</h3>
                   <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  <div className="flex items-center text-purple-600 font-semibold group-hover:text-purple-700 transition-colors">
-                    <span>Learn More</span>
-                    <span className="ml-2 group-hover:translate-x-2 transition-transform duration-300">→</span>
-                  </div>
-                  
                   {/* Hover effect overlay */}
                   <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-200/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </CardContent>

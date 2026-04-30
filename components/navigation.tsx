@@ -75,13 +75,13 @@ export default function Navigation() {
           <div className="flex items-center gap-4">
             {/* Phone Number */}
             <a 
-              href="tel:7392861099" 
+              href="tel:7800074443" 
               className="hidden md:flex items-center gap-2 text-gray-600 hover:text-primary-700 font-semibold transition-all duration-300 hover:scale-105"
             >
               <div className="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center">
                 <Phone className="w-4 h-4 text-primary-600" />
               </div>
-              <span className="hidden md:inline">7392861099</span>
+              <span className="hidden md:inline">7800074443</span>
             </a>
             
             {/* Get Quote Button */}
@@ -121,13 +121,13 @@ export default function Navigation() {
               ))}
               <div className="pt-4 border-t border-gray-100 mt-4 space-y-3">
                 <a 
-                  href="tel:7392861099" 
+                  href="tel:7800074443" 
                   className="flex items-center px-4 py-3 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center mr-3">
                     <Phone className="w-5 h-5 text-primary-600" />
                   </div>
-                  7392861099
+                  7800074443
                 </a>
                 <Button
                   onClick={handleGetQuote}

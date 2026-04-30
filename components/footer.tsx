@@ -95,10 +95,10 @@ export default function Footer() {
                 <Phone className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                 <div>
                   <a 
-                    href="tel:+917392861099" 
+                    href="tel:+917800074443" 
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
-                    +91 7392861099
+                    +91 7800074443
                   </a>
                   <p className="text-xs text-gray-500">Mon-Sat 9AM-7PM</p>
                 </div>
@@ -108,10 +108,10 @@ export default function Footer() {
                 <Mail className="w-5 h-5 text-white mt-1 flex-shrink-0" />
                 <div>
                   <a 
-                    href="mailto:estarragroup@gmail.com" 
+                    href="mailto:info@estarra.in" 
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
-                    estarragroup@gmail.com
+                    info@estarra.in
                   </a>
                   <p className="text-xs text-gray-500">24hr response time</p>
                 </div>
@@ -129,7 +129,7 @@ export default function Footer() {
             <Button
               onClick={() => {
                 const message = `Hi! I'm interested in Estarra's construction services. I'd like to discuss my project requirements.`;
-                window.open(`https://wa.me/917392861099?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/917800074443?text=${encodeURIComponent(message)}`, '_blank');
               }}
               className="bg-white hover:bg-gray-200 text-black font-semibold px-6 py-3 rounded-full text-sm transition-all hover:scale-105"
             >
@@ -148,7 +148,7 @@ export default function Footer() {
               © {currentYear} Estarra Group. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
-              Powered by Ishtika Engineers | Building Excellence Since 2008
+              Powered by Ishtika Engineers | Building Excellence Since 2010
             </p>
           </div>
 

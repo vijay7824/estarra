@@ -8,7 +8,7 @@ import { ArrowRight, Play, Award, Users, Building } from "lucide-react";
 export default function HeroSection() {
   const handleWhatsApp = () => {
     const message = `Hi! I'm interested in Estarra's construction services. I'd like to discuss my project requirements.`;
-    window.open(`https://wa.me/917392861099?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917800074443?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (

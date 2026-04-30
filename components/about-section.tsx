@@ -44,7 +44,7 @@ export default function AboutSection() {
             </span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-black text-black mb-6">
-            Building <span className="font-black">Dreams</span> Since 2008
+            Building <span className="font-black">Dreams</span> Since 2010
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto">
             With over 15 years of excellence in construction and engineering, we transform visions into reality.

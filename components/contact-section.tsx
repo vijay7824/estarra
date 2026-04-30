@@ -14,15 +14,15 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Call Us",
-    info: "+91 7392861099",
-    action: "tel:+917392861099",
+    info: "+91 7800074443",
+    action: "tel:+917800074443",
     description: "Mon-Sat 9AM-7PM"
   },
   {
     icon: Mail,
     title: "Email Us",
-    info: "estarragroup@gmail.com",
-    action: "mailto:estarragroup@gmail.com",
+    info: "info@estarra.in",
+    action: "mailto:info@estarra.in",
     description: "We reply within 24hrs"
   },
   {
@@ -88,7 +88,7 @@ export default function ContactSection() {
 
   const handleWhatsApp = () => {
     const message = `Hi! I'm interested in Estarra's construction services. I'd like to discuss my project requirements.`;
-    window.open(`https://wa.me/917392861099?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/917800074443?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
