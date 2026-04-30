@@ -18,6 +18,10 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Estarra",
   description: "Estarra - Modern Web Application",
+  icons: {
+    icon: "/assets/estarra_logo.svg",
+    apple: "/assets/estarra_logo.svg",
+  },
 };
 
 export default function RootLayout({
