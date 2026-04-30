@@ -19,10 +19,10 @@ const projects = [
   {
     title: "Corporate Office Tower",
     category: "Commercial",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800&h=600",
-    description: "State-of-the-art commercial building with cutting-edge technology and sustainable features.",
-    features: ["LEED Certified", "Smart Building", "Modern Design"],
-    duration: "24 months",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800&h=600",
+    description: "Modern 4-story corporate office building with sleek architecture and professional workspace design for growing businesses.",
+    features: ["4 Floor Structure", "Smart Building", "Modern Design"],
+    duration: "18 months",
     rating: 4.9
   },
   {
@@ -58,7 +58,7 @@ export default function ProjectsSection() {
             </span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-black text-black mb-6">
-            Featured <span className="font-black">Projects</span>
+            Featured <span className="text-gradient">Projects</span> 
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto">
             Showcasing our commitment to excellence through innovative design and superior craftsmanship.

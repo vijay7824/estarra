@@ -1,63 +1,96 @@
 "use client";
 
-import { CardContent } from "@/components/ui/card";
-import { ElegantCard } from "@/components/ui/elegant-card";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { Home, Building, Key, Wrench, Paintbrush, ClipboardList } from "lucide-react";
+import { Home, Building, Key, Wrench, Paintbrush, ClipboardList, CheckCircle } from "lucide-react";
 
 const services = [
   {
     icon: Home,
     title: "Residential Construction",
-    description: "Custom homes designed and built to your exact specifications. Structure starts from ₹1149/- per sqft, full finished starts from ₹1699/- per sqft.",
-    color: "text-purple-600"
+    description: "Build your dream home with Estarra's expert residential construction services. We deliver strong, durable, and modern homes using high-quality materials and advanced construction techniques.",
+    pricing: [
+      { label: "Structure starts from", price: "₹1149/sqft" },
+      { label: "Full finished starts from", price: "₹1699/sqft" }
+    ],
+    features: [
+      "Customized Home Construction",
+      "Strong Structural Quality",
+      "Modern Designs & Finishing",
+      "On-Time Delivery"
+    ]
   },
   {
     icon: Building,
-    title: "Commercial Buildings",
-    description: "Professional commercial and institutional construction projects with modern design and functionality.",
-    color: "text-purple-700"
+    title: "Commercial Construction",
+    description: "We specialize in building high-performance commercial spaces including offices, showrooms, and retail outlets designed for functionality and long-term value.",
+    pricing: [
+      { label: "Starting from", price: "₹1299/sqft" }
+    ],
+    features: [
+      "Office & Retail Construction",
+      "Scalable & Modern Designs",
+      "Efficient Project Execution",
+      "Durable Construction Standards"
+    ]
   },
   {
     icon: Key,
     title: "Turnkey Projects",
-    description: "Complete project solutions from design to delivery, handling every aspect of your construction needs.",
-    color: "text-purple-800"
+    description: "From concept to completion, Estarra handles everything—design, planning, construction, and finishing—so you don't have to manage multiple vendors.",
+    pricing: [],
+    features: [
+      "End-to-End Project Execution",
+      "Single Point Responsibility",
+      "Hassle-Free Experience",
+      "Budget & Timeline Control"
+    ]
   },
   {
     icon: Wrench,
     title: "Renovation & Remodeling",
-    description: "Transform existing spaces with innovative renovation and remodeling solutions that add value.",
-    color: "text-purple-600"
+    description: "Upgrade your existing space with modern designs and improved functionality. We transform spaces with precision and creativity.",
+    pricing: [],
+    features: [
+      "Home & Office Renovation",
+      "Space Optimization",
+      "Modern Upgrades",
+      "Value Enhancement"
+    ]
   },
   {
     icon: Paintbrush,
     title: "Interior Design",
-    description: "Complete interior design and execution services to create beautiful, functional living spaces.",
-    color: "text-purple-700"
+    description: "We design and execute interiors that reflect your lifestyle and elevate your space with premium finishes and seamless execution.",
+    pricing: [],
+    features: [
+      "Customized Interior Designs",
+      "Modern & Functional Spaces",
+      "Complete Execution",
+      "Premium Finishes"
+    ]
   },
   {
     icon: ClipboardList,
     title: "Project Management",
-    description: "Professional project management and consulting services to ensure timely and quality delivery.",
-    color: "text-purple-800"
+    description: "We manage your construction project from start to finish—handling planning, budgeting, coordination, and execution efficiently.",
+    pricing: [],
+    features: [
+      "End-to-End Management",
+      "Cost & Time Control",
+      "Site Supervision",
+      "Transparent Updates"
+    ]
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-gradient-to-br from-gray-50 via-white to-purple-50 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-full" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239333ea' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }}></div>
-      </div>
-      
+    <section id="services" className="py-24 bg-gradient-to-br from-white via-gray-50 to-gray-100 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <AnimatedSection animation="slideUp" className="text-center mb-20">
           <div className="inline-block mb-4">
-            <span className="bg-purple-100 text-purple-600 px-4 py-2 rounded-full text-sm font-semibold">
+            <span className="bg-purple-100 text-purple-700 px-4 py-2 rounded-full text-sm font-semibold">
               Our Expertise
             </span>
           </div>
@@ -65,45 +98,68 @@ export default function ServicesSection() {
             Our <span className="text-gradient">Premium</span> Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Comprehensive construction solutions tailored to bring your vision to life with unmatched quality and precision.
+            Premium construction & interior solutions in Lucknow
           </p>
         </AnimatedSection>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Services Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <AnimatedSection 
               key={index}
               animation="scaleIn"
               delay={index * 100}
             >
-              <ElegantCard className="h-full">
-                <CardContent className="p-8 relative z-10">
-                  <div className={`w-20 h-20 bg-${service.color.replace('text-', '')} bg-opacity-10 rounded-3xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
-                    <service.icon className={`w-10 h-10 ${service.color} drop-shadow-sm`} />
+              <div className="group bg-white rounded-2xl p-6 shadow-[0_0_40px_-10px_rgba(59,130,246,0.15)] hover:shadow-[0_0_50px_-5px_rgba(59,130,246,0.25)] transition-all duration-300 hover:-translate-y-2 border border-gray-50 h-full flex flex-col">
+                {/* Icon */}
+                <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-5 group-hover:bg-purple-100 transition-colors">
+                  <service.icon className="w-7 h-7 text-purple-600" />
+                </div>
+                
+                {/* Title */}
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-purple-700 transition-colors">
+                  {service.title}
+                </h3>
+                
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                
+                {/* Pricing */}
+                {service.pricing.length > 0 && (
+                  <div className="mb-4 space-y-2">
+                    {service.pricing.map((price, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-sm bg-purple-50/50 px-3 py-2 rounded-lg">
+                        <span className="text-purple-600 font-medium">₹</span>
+                        <span className="text-gray-600">{price.label}</span>
+                        <span className="font-bold text-purple-700 ml-auto">{price.price}</span>
+                      </div>
+                    ))}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">{service.title}</h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                  {/* Hover effect overlay */}
-                  <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-purple-200/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </CardContent>
-              </ElegantCard>
+                )}
+                
+                {/* Features */}
+                <ul className="space-y-3 mb-6 flex-grow">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-gray-600">
+                      <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                {/* CTA Button */}
+                <button 
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30"
+                >
+                  Start Your Project with Expert Guidance
+                </button>
+              </div>
             </AnimatedSection>
           ))}
         </div>
-        
-        {/* Call to action */}
-        <AnimatedSection animation="fadeIn" delay={800} className="text-center mt-16">
-          <div className="glass-effect rounded-2xl p-8 inline-block border border-purple-200/30">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Start Your Project?</h3>
-            <p className="text-gray-600 mb-6">Get a free consultation and quote for your construction needs.</p>
-            <button 
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="estarra-gradient text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-all glow-effect shadow-xl hover:shadow-purple-500/50"
-            >
-              Get Free Quote
-            </button>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );

@@ -44,7 +44,7 @@ export default function AboutSection() {
             </span>
           </div>
           <h2 className="text-4xl lg:text-6xl font-black text-black mb-6">
-            Building <span className="font-black">Dreams</span> Since 2010
+            Building Dreams <span className="text-gradient"> Since 2010 </span>  
           </h2>
           <p className="text-xl text-black max-w-3xl mx-auto">
             With over 15 years of excellence in construction and engineering, we transform visions into reality.
@@ -86,8 +86,8 @@ export default function AboutSection() {
             <div className="relative">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
                 <img 
-                  src="/WhatsApp Image 2025-08-03 at 2.49.47 PM_1754243821976.jpeg"
-                  alt="Estarra Team"
+                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800&h=600"
+                  alt="Construction Site"
                   className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -109,13 +109,13 @@ export default function AboutSection() {
           <div className="grid md:grid-cols-4 gap-6 mb-20">
             {achievements.map((achievement, index) => (
               <div key={index} 
-                className="group text-center p-6 rounded-2xl bg-white border border-black hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="group text-center p-6 rounded-2xl bg-white shadow-[0_0_40px_-10px_rgba(59,130,246,0.15)] hover:shadow-[0_0_50px_-5px_rgba(59,130,246,0.25)] border border-gray-100 transition-all duration-300 hover:-translate-y-2"
               >
-                <div className="w-16 h-16 bg-black rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <achievement.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-200 group-hover:scale-110 transition-all duration-300">
+                  <achievement.icon className="w-8 h-8 text-purple-600" />
                 </div>
-                <h4 className="font-bold text-black mb-2">{achievement.title}</h4>
-                <p className="text-black text-sm">{achievement.description}</p>
+                <h4 className="font-bold text-gray-900 mb-2 group-hover:text-purple-700 transition-colors">{achievement.title}</h4>
+                <p className="text-gray-600 text-sm">{achievement.description}</p>
               </div>
             ))}
           </div>
@@ -124,23 +124,23 @@ export default function AboutSection() {
         {/* Values Section */}
         <AnimatedSection animation="slideUp" delay={600}>
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-black mb-4">Our Core Values</h3>
-            <p className="text-black max-w-2xl mx-auto">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Core Values</h3>
+            <p className="text-gray-600 max-w-2xl mx-auto">
               The principles that guide every decision and shape every project we undertake.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {values.map((value, index) => (
               <div key={index} 
-                className="group text-center p-8 rounded-3xl bg-white border border-black hover:shadow-2xl transition-all duration-500 hover:-translate-y-4"
+                className="group text-center p-8 rounded-3xl bg-white shadow-[0_0_40px_-10px_rgba(34,197,94,0.15)] hover:shadow-[0_0_50px_-5px_rgba(34,197,94,0.25)] border border-gray-100 transition-all duration-500 hover:-translate-y-4"
               >
-                <div className="w-20 h-20 bg-black rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
-                  <value.icon className="w-10 h-10 text-white" />
+                <div className="w-20 h-20 bg-green-100 rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+                  <value.icon className="w-10 h-10 text-green-600" />
                 </div>
-                <h4 className="text-2xl font-bold text-black mb-4">
+                <h4 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-green-700 transition-colors">
                   {value.title}
                 </h4>
-                <p className="text-black leading-relaxed">
+                <p className="text-gray-600 leading-relaxed">
                   {value.description}
                 </p>
               </div>
