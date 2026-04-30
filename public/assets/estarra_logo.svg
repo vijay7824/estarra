@@ -1,7 +1,61 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" rx="12" fill="#0F172A"/>
-  <path d="M12 28L32 14L52 28" stroke="#F59E0B" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M20 28H44M20 38H40M20 48H44" stroke="white" stroke-width="4" stroke-linecap="round"/>
-  <rect x="20" y="28" width="4" height="20" fill="white"/>
-  <rect x="36" y="36" width="6" height="6" fill="#F59E0B"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img">
+  <title>Hex City Skyline — Civil Construction Favicon</title>
+  <desc>A hexagon containing a city skyline on an emerald green background</desc>
+
+  <!-- Background rounded square -->
+  <rect width="100" height="100" rx="20" fill="#064E3B"/>
+
+  <!-- Outer hexagon -->
+  <polygon points="50,8 79,25 79,59 50,76 21,59 21,25" fill="#065F46"/>
+
+  <!-- Inner hexagon (lighter) -->
+  <polygon points="50,13 74,27 74,57 50,71 26,57 26,27" fill="#059669"/>
+
+  <!-- City skyline buildings -->
+  <!-- Left building -->
+  <rect x="29" y="48" width="12" height="20" rx="1" fill="#D1FAE5"/>
+  <!-- Windows left building -->
+  <rect x="31" y="51" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="36" y="51" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="31" y="57" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="36" y="57" width="3" height="3" rx="0.5" fill="#059669"/>
+
+  <!-- Center tall building -->
+  <rect x="43" y="36" width="14" height="32" rx="1" fill="#A7F3D0"/>
+  <!-- Windows center building -->
+  <rect x="45" y="40" width="4" height="3" rx="0.5" fill="#059669"/>
+  <rect x="51" y="40" width="4" height="3" rx="0.5" fill="#059669"/>
+  <rect x="45" y="47" width="4" height="3" rx="0.5" fill="#059669"/>
+  <rect x="51" y="47" width="4" height="3" rx="0.5" fill="#059669"/>
+  <rect x="45" y="54" width="4" height="3" rx="0.5" fill="#059669"/>
+  <rect x="51" y="54" width="4" height="3" rx="0.5" fill="#059669"/>
+
+  <!-- Right building -->
+  <rect x="59" y="43" width="12" height="25" rx="1" fill="#D1FAE5"/>
+  <!-- Windows right building -->
+  <rect x="61" y="46" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="66" y="46" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="61" y="52" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="66" y="52" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="61" y="58" width="3" height="3" rx="0.5" fill="#059669"/>
+  <rect x="66" y="58" width="3" height="3" rx="0.5" fill="#059669"/>
+
+  <!-- Antenna on center building with glowing dot -->
+  <line x1="50" y1="36" x2="50" y2="26" stroke="#6EE7B7" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="50" cy="25" r="2.5" fill="#34D399"/>
+  <circle cx="50" cy="25" r="1.2" fill="#ECFDF5"/>
+
+  <!-- Ground / road -->
+  <rect x="26" y="68" width="48" height="3" rx="1" fill="#047857"/>
+
+  <!-- Road center dashes -->
+  <rect x="33" y="69" width="6" height="1" rx="0.5" fill="#6EE7B7" opacity="0.6"/>
+  <rect x="44" y="69" width="6" height="1" rx="0.5" fill="#6EE7B7" opacity="0.6"/>
+  <rect x="55" y="69" width="6" height="1" rx="0.5" fill="#6EE7B7" opacity="0.6"/>
+
+  <!-- Stars / sparkles in background -->
+  <circle cx="32" cy="22" r="1.2" fill="#34D399" opacity="0.8"/>
+  <circle cx="68" cy="19" r="1" fill="#6EE7B7" opacity="0.7"/>
+  <circle cx="74" cy="35" r="0.8" fill="#A7F3D0" opacity="0.6"/>
+  <circle cx="26" cy="42" r="0.8" fill="#34D399" opacity="0.5"/>
 </svg>
