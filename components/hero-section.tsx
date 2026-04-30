@@ -59,7 +59,7 @@ export default function HeroSection() {
               </div>
             </AnimatedSection>
             
-            <AnimatedSection animation="slideUp" delay={800}>
+            {/* <AnimatedSection animation="slideUp" delay={800}>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   size="lg"
@@ -80,7 +80,41 @@ export default function HeroSection() {
                   WhatsApp Consultation
                 </Button>
               </div>
+            </AnimatedSection> */}
+
+            <AnimatedSection animation="slideUp" delay={800}>
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+
+                {/* Primary Button */}
+                <Button 
+                  size="lg"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="bg-primary-600 text-white font-bold text-lg px-8 py-4 rounded-full shadow-2xl 
+                  hover:bg-primary-700 hover:text-white 
+                  hover:shadow-primary-500/50 hover:scale-105 
+                  transition-all duration-300 group"
+                >
+                  Start Your Project
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
+                {/* Secondary Button */}
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  onClick={handleWhatsApp}
+                  className="border-2 border-luxury-600 text-luxury-700 
+                  hover:bg-luxury-600 hover:text-white 
+                  font-bold text-lg px-8 py-4 rounded-full backdrop-blur-sm 
+                  transition-all duration-300 hover:scale-105"
+                >
+                  <Play className="w-5 h-5 mr-2" />
+                  WhatsApp Consultation
+                </Button>
+
+              </div>
             </AnimatedSection>
+
             
             <AnimatedSection animation="fadeIn" delay={1000}>
               <div className="flex items-center gap-4 pt-8">
