@@ -45,15 +45,21 @@ export default function Navigation() {
               onClick={() => scrollToSection('home')}
               className="flex items-center gap-2 group"
             >
-              <img 
-                src="/assets/logo.jpeg" 
-                alt="Estarra Logo" 
-                className={`w-auto transition-all duration-300 ${
-                  isScrolled 
-                    ? 'h-12 md:h-16' 
-                    : 'h-16 md:h-20'
-                } border-0 shadow-none group-hover:scale-105`}
-              />
+              <div className={`bg-white/80 backdrop-blur-sm rounded-lg p-2 transition-all duration-300 ${
+                isScrolled 
+                  ? 'shadow-md' 
+                  : 'shadow-lg'
+              }`}>
+                <img 
+                  src="/assets/logo.jpeg" 
+                  alt="Estarra Logo" 
+                  className={`w-auto transition-all duration-300 ${
+                    isScrolled 
+                      ? 'h-10 md:h-14' 
+                      : 'h-14 md:h-18'
+                  } border-0 shadow-none group-hover:scale-105`}
+                />
+              </div>
             </button>
           </div>
           
@@ -63,7 +69,7 @@ export default function Navigation() {
               <button 
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="relative px-3 lg:px-4 py-2 text-gray-600 hover:text-primary-700 font-medium transition-all duration-300 rounded-full hover:bg-primary-50 group whitespace-nowrap"
+                className="relative px-3 lg:px-4 py-2 text-white-600 hover:text-primary-700 font-medium transition-all duration-300 rounded-full hover:bg-primary-50 group whitespace-nowrap"
               >
                 <span className="relative z-10">{item}</span>
                 <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-luxury-500 group-hover:w-4/5 group-hover:left-[10%] transition-all duration-300 rounded-full"></span>
@@ -125,7 +131,7 @@ export default function Navigation() {
                   className="flex items-center px-4 py-3 text-primary-700 font-semibold rounded-xl hover:bg-primary-50 transition-all"
                 >
                   <div className="w-10 h-10 rounded-full bg-primary-50 flex items-center justify-center mr-3">
-                    <Phone className="w-5 h-5 text-primary-600" />
+                  <Phone className="w-5 h-5 text-primary-600" />
                   </div>
                   7800074443
                 </a>
