@@ -154,7 +154,7 @@ export default function ServicesSection() {
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                   className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30"
                 >
-                  Start Your Project with Expert Guidance
+                  Get Free Design & Cost Estimate
                 </button>
               </div>
             </AnimatedSection>

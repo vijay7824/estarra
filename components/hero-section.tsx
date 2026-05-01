@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="space-y-6 lg:pl-0 xl:pl-8">
             <AnimatedSection animation="slideUp" delay={200}>
               <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-black text-white leading-tight font-serif mb-4">
-                Building Your <span className="text-gradient">Dreams</span> Higher
+                Building Your <span className="text-gradient font-extrabold">Dreams</span> Higher
               </h1>
             </AnimatedSection>
             
