@@ -31,3 +31,12 @@ Thumbs.db
 
 # Vercel
 .vercel
+
+# Video files (too large for GitHub)
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+public/assets/*.mp4
