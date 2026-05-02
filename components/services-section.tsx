@@ -17,7 +17,8 @@ const services = [
       "Strong Structural Quality",
       "Modern Designs & Finishing",
       "On-Time Delivery"
-    ]
+    ],
+    cta: "Design Your Dream Home — See the Cost Instantly"
   },
   {
     icon: Building,
@@ -31,7 +32,8 @@ const services = [
       "Scalable & Modern Designs",
       "Efficient Project Execution",
       "Durable Construction Standards"
-    ]
+    ],
+    cta: "Plan a Smarter Business Space with Our Experts"
   },
   {
     icon: Key,
@@ -43,7 +45,8 @@ const services = [
       "Single Point Responsibility",
       "Hassle-Free Experience",
       "Budget & Timeline Control"
-    ]
+    ],
+    cta: "One Team. One Contract. From Design to Delivery"
   },
   {
     icon: Wrench,
@@ -55,7 +58,8 @@ const services = [
       "Space Optimization",
       "Modern Upgrades",
       "Value Enhancement"
-    ]
+    ],
+    cta: "Give Your Space a Stunning Upgrade — Let's Start"
   },
   {
     icon: Paintbrush,
@@ -67,7 +71,8 @@ const services = [
       "Modern & Functional Spaces",
       "Complete Execution",
       "Premium Finishes"
-    ]
+    ],
+    cta: "Transform Your Space — Start Your Design Journey"
   },
   {
     icon: ClipboardList,
@@ -79,7 +84,8 @@ const services = [
       "Cost & Time Control",
       "Site Supervision",
       "Transparent Updates"
-    ]
+    ],
+    cta: "Ensure On-Time, On-Budget Execution — Talk to Experts"
   },
 ];
 
@@ -152,9 +158,9 @@ export default function ServicesSection() {
                 {/* CTA Button */}
                 <button 
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30"
+                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 text-center"
                 >
-                  Get Free Design & Cost Estimate
+                  {service.cta}
                 </button>
               </div>
             </AnimatedSection>

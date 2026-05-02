@@ -16,7 +16,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden flex items-end pt-32 pb-20">
+    <section id="home" className="min-h-screen relative overflow-hidden flex items-end pt-64 pb-32">
       <FloatingElements variant="hero" />
       
       {/* Background Video */}
@@ -40,7 +40,7 @@ export default function HeroSection() {
           <div className="space-y-6 lg:pl-0 xl:pl-8">
             <AnimatedSection animation="slideUp" delay={200}>
               <h1 className="text-2xl md:text-3xl lg:text-3xl xl:text-5xl font-black text-white leading-tight font-serif mb-4">
-                Building Your <span className="text-gradient font-extrabold">Dreams</span> Higher
+                Building Your Dreams Higher
               </h1>
             </AnimatedSection>
             
