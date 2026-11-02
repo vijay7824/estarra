@@ -43,23 +43,17 @@ export default function Navigation() {
           <div className="flex items-center">
             <button 
               onClick={() => scrollToSection('home')}
-              className="flex items-center gap-2 group"
+              className="flex items-center group transition-transform duration-300 hover:scale-[1.03]"
             >
-              <div className={`bg-white/80 backdrop-blur-sm rounded-lg p-2 transition-all duration-300 ${
-                isScrolled 
-                  ? 'shadow-md' 
-                  : 'shadow-lg'
-              }`}>
-                <img 
-                  src="/assets/logo.jpeg" 
-                  alt="Estarra Logo" 
-                  className={`w-auto transition-all duration-300 ${
-                    isScrolled 
-                      ? 'h-10 md:h-14' 
-                      : 'h-14 md:h-18'
-                  } border-0 shadow-none group-hover:scale-105`}
-                />
-              </div>
+              <img 
+                src="/assets/logo-transparent.png" 
+                alt="Estarra - Shine higher" 
+                className={`w-auto object-contain transition-all duration-300 ${
+                  isScrolled 
+                    ? 'h-9 md:h-10' 
+                    : 'h-11 md:h-12'
+                }`}
+              />
             </button>
           </div>
           
@@ -69,7 +63,7 @@ export default function Navigation() {
               <button 
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="relative px-3 lg:px-4 py-2 text-white-600 hover:text-primary-700 font-medium transition-all duration-300 rounded-full hover:bg-primary-50 group whitespace-nowrap"
+                className="relative px-3 lg:px-4 py-2 text-gray-700 hover:text-primary-700 font-medium transition-all duration-300 rounded-full hover:bg-primary-50 group whitespace-nowrap"
               >
                 <span className="relative z-10">{item}</span>
                 <span className="absolute bottom-1 left-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-500 to-luxury-500 group-hover:w-4/5 group-hover:left-[10%] transition-all duration-300 rounded-full"></span>
