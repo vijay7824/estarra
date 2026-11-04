@@ -3,6 +3,8 @@ import { storage } from '@/server/storage';
 import { insertContactInquirySchema } from '@/shared/schema';
 import { z } from 'zod';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();

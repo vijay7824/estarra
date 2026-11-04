@@ -1,5 +1,9 @@
+"use client";
+
+import Link from "next/link";
 import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SITE_CONFIG } from "@/lib/seo-config";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,26 +13,28 @@ export default function Footer() {
   };
 
   const services = [
-    "Residential Construction",
-    "Commercial Buildings",
-    "Turnkey Projects",
-    "Renovation & Restoration",
-    "Interior Design",
-    "Project Management"
+    { name: "Residential Construction (Lucknow)", href: "/residential-construction-lucknow" },
+    { name: "Turnkey House Construction", href: "/turnkey-construction-lucknow" },
+    { name: "House Construction Cost Calculator", href: "/house-construction-cost-lucknow" },
+    { name: "Commercial Buildings", href: "/#services" },
+    { name: "Renovation & Restoration", href: "/#services" },
+    { name: "Interior Design & Architecture", href: "/#services" },
   ];
 
   const quickLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "Services", href: "#services" },
-    { name: "Projects", href: "#projects" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" }
+    { name: "Home", href: "/" },
+    { name: "Residential Construction", href: "/residential-construction-lucknow" },
+    { name: "Turnkey Projects", href: "/turnkey-construction-lucknow" },
+    { name: "Cost Calculator (Lucknow)", href: "/house-construction-cost-lucknow" },
+    { name: "Projects", href: "/#projects" },
+    { name: "About Us", href: "/#about" },
+    { name: "Contact & Free Quote", href: "/#contact" }
   ];
 
   return (
     <footer className="bg-black text-white relative overflow-hidden">
       {/* Background Pattern */}
-  <div className="absolute inset-0 opacity-5 bg-black"></div>
+      <div className="absolute inset-0 opacity-5 bg-black"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Footer Content */}
@@ -37,12 +43,12 @@ export default function Footer() {
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center gap-3">
               <div>
-                <h3 className="text-xl font-bold">Estarra</h3>
+                <h3 className="text-xl font-bold font-serif">Estarra</h3>
                 <p className="text-gray-300 text-sm font-semibold">Shine Higher</p>
               </div>
             </div>
-            <p className="text-gray-300 leading-relaxed">
-              Building dreams with 15+ years of excellence in construction and engineering. From concept to completion, we deliver quality that lasts.
+            <p className="text-gray-300 leading-relaxed text-sm">
+              Building dreams with 15+ years of excellence in residential and turnkey construction across Lucknow. From 3D planning to key handover, we deliver quality that lasts.
             </p>
             <div className="text-sm text-gray-400">
               <p className="font-semibold text-gray-300">Powered by Ishtika Engineers</p>
@@ -51,16 +57,16 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white">Our Services</h4>
+            <h4 className="text-lg font-bold text-white font-serif">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a 
-                    href="#services" 
+                  <Link 
+                    href={service.href} 
                     className="text-gray-300 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block duration-300"
                   >
-                    {service}
-                  </a>
+                    {service.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -68,20 +74,16 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white">Quick Links</h4>
+            <h4 className="text-lg font-bold text-white font-serif">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a 
+                  <Link 
                     href={link.href}
                     className="text-gray-300 hover:text-white transition-colors text-sm hover:translate-x-1 inline-block duration-300"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById(link.href.substring(1))?.scrollIntoView({ behavior: 'smooth' });
-                    }}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -89,49 +91,49 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white">Get In Touch</h4>
+            <h4 className="text-lg font-bold text-white font-serif">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+                <Phone className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
                 <div>
                   <a 
-                    href="tel:+917800074443" 
-                    className="text-gray-300 hover:text-white transition-colors text-sm"
+                    href={`tel:${SITE_CONFIG.phoneTel}`} 
+                    className="text-gray-300 hover:text-white transition-colors text-sm font-semibold"
                   >
-                    +91 7800074443
+                    {SITE_CONFIG.phoneDisplay}
                   </a>
                   <p className="text-xs text-gray-500">Mon-Sat 9AM-7PM</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+                <Mail className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
                 <div>
                   <a 
-                    href="mailto:info@estarra.in" 
+                    href={`mailto:${SITE_CONFIG.email}`} 
                     className="text-gray-300 hover:text-white transition-colors text-sm"
                   >
-                    info@estarra.in
+                    {SITE_CONFIG.email}
                   </a>
                   <p className="text-xs text-gray-500">24hr response time</p>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-white mt-1 flex-shrink-0" />
+                <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
                 <div>
-                  <span className="text-gray-300 text-sm">Lucknow, Uttar Pradesh</span>
-                  <p className="text-xs text-gray-500">Visit by appointment</p>
+                  <span className="text-gray-300 text-sm">Gomti Nagar / Shaheed Path</span>
+                  <p className="text-xs text-gray-400">Lucknow, Uttar Pradesh</p>
                 </div>
               </div>
             </div>
 
             <Button
               onClick={() => {
-                const message = `Hi! I'm interested in Estarra's construction services. I'd like to discuss my project requirements.`;
-                window.open(`https://wa.me/917800074443?text=${encodeURIComponent(message)}`, '_blank');
+                const message = `Hi! I'm interested in Estarra's construction services in Lucknow. I'd like to discuss my project requirements.`;
+                window.open(`${SITE_CONFIG.whatsappUrl}?text=${encodeURIComponent(message)}`, '_blank');
               }}
-              className="bg-white hover:bg-gray-200 text-black font-semibold px-6 py-3 rounded-full text-sm transition-all hover:scale-105"
+              className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-6 py-3 rounded-full text-sm transition-all hover:scale-105"
             >
               WhatsApp Us
             </Button>
@@ -139,7 +141,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-  <div className="h-px bg-gray-700"></div>
+        <div className="h-px bg-gray-800"></div>
 
         {/* Bottom Footer */}
         <div className="py-8 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -148,7 +150,7 @@ export default function Footer() {
               © {currentYear} Estarra Group. All rights reserved.
             </p>
             <p className="text-gray-500 text-xs mt-1">
-              Powered by Ishtika Engineers | Building Excellence Since 2010
+              Powered by Ishtika Engineers | Lucknow House Construction Since 2010
             </p>
           </div>
 
@@ -168,8 +170,8 @@ export default function Footer() {
       </div>
 
       {/* Decorative Elements */}
-  <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-radial from-white/10 to-transparent"></div>
-  <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-radial from-white/10 to-transparent"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-radial from-white/10 to-transparent"></div>
+      <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-radial from-white/10 to-transparent"></div>
     </footer>
   );
 }

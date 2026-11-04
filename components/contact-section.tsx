@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { AnimatedSection } from "@/components/ui/animated-section";
-import { FloatingElements } from "@/components/ui/floating-elements";
-import { ElegantCard } from "@/components/ui/elegant-card";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Send, MessageCircle, Clock, Award } from "lucide-react";
 
@@ -92,222 +90,217 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-gray-900 via-purple-900 to-black relative overflow-hidden">
-      <FloatingElements variant="hero" />
-      
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-600/10 to-transparent"></div>
-        <div className="absolute bottom-0 right-0 w-2/3 h-2/3 bg-gradient-radial from-purple-500/10 to-transparent"></div>
-      </div>
-      
+    <section id="contact" className="py-24 bg-white text-gray-900 relative overflow-hidden border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <AnimatedSection animation="slideUp" className="text-center mb-20">
+        <AnimatedSection animation="slideUp" className="text-center mb-16">
           <div className="inline-block mb-4">
-            <span className="bg-white/10 text-purple-300 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">
+            <span className="bg-primary-50 text-primary-700 border border-primary-200 px-4 py-2 rounded-full text-sm font-semibold">
               Get In Touch
             </span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-black text-white mb-6">
-            Let's Build Your <span className="text-gradient">Dream</span>
+          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-6 font-serif">
+            Let&apos;s Build Your <span className="text-primary-600">Dream</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to start your construction journey? Contact us for a free consultation and personalized quote.
           </p>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-3 gap-12">
+        <div className="grid lg:grid-cols-3 gap-10">
           {/* Contact Form */}
           <AnimatedSection animation="slideLeft" className="lg:col-span-2">
-            <ElegantCard className="bg-white/5 backdrop-blur-md border-white/10">
-              <div className="p-8">
-                <h3 className="text-2xl font-bold text-white mb-6">Send us a message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-300 text-sm font-semibold mb-2">Name *</label>
-                      <Input
-                        type="text"
-                        value={formData.name}
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400"
-                        placeholder="Your full name"
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 text-sm font-semibold mb-2">Email *</label>
-                      <Input
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400"
-                        placeholder="your@email.com"
-                        required
-                      />
-                    </div>
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-gray-300 text-sm font-semibold mb-2">Phone</label>
-                      <Input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                        className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400"
-                        placeholder="+91 99999 99999"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-gray-300 text-sm font-semibold mb-2">Project Type</label>
-                      <select
-                        value={formData.project}
-                        onChange={(e) => setFormData({...formData, project: e.target.value})}
-                        className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-purple-400 focus:outline-none"
-                      >
-                        <option value="" className="bg-gray-800">Select project type</option>
-                        <option value="residential" className="bg-gray-800">Residential Construction</option>
-                        <option value="commercial" className="bg-gray-800">Commercial Building</option>
-                        <option value="turnkey" className="bg-gray-800">Turnkey Project</option>
-                        <option value="renovation" className="bg-gray-800">Renovation</option>
-                        <option value="interior" className="bg-gray-800">Interior Design</option>
-                        <option value="consulting" className="bg-gray-800">Project Management</option>
-                      </select>
-                    </div>
-                  </div>
-                  
+            <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-xl">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">Send us a message</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm font-semibold mb-2">Budget Range</label>
-                    <select
-                      value={formData.budget}
-                      onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                      className="w-full p-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-purple-400 focus:outline-none"
-                    >
-                      <option value="" className="bg-gray-800">Select budget range</option>
-                      <option value="5-10lakhs" className="bg-gray-800">₹5-10 Lakhs</option>
-                      <option value="10-25lakhs" className="bg-gray-800">₹10-25 Lakhs</option>
-                      <option value="25-50lakhs" className="bg-gray-800">₹25-50 Lakhs</option>
-                      <option value="50lakhs+" className="bg-gray-800">₹50+ Lakhs</option>
-                      <option value="custom" className="bg-gray-800">Custom Quote</option>
-                    </select>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-gray-300 text-sm font-semibold mb-2">Message *</label>
-                    <Textarea
-                      value={formData.message}
-                      onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:border-purple-400 min-h-32"
-                      placeholder="Tell us about your project requirements, timeline, and any specific needs..."
+                    <label className="block text-gray-700 text-sm font-semibold mb-2">Name *</label>
+                    <Input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
+                      placeholder="Your full name"
                       required
                     />
                   </div>
-                  
-                  <div className="flex flex-col sm:flex-row gap-4">
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="estarra-gradient text-white font-bold py-4 px-8 rounded-full hover:scale-105 transition-all glow-effect shadow-xl hover:shadow-purple-500/50 flex items-center gap-2"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                          Sending...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          Send Message
-                        </>
-                      )}
-                    </Button>
-                    
-                    <Button
-                      type="button"
-                      onClick={handleWhatsApp}
-                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full transition-all hover:scale-105 flex items-center gap-2"
-                    >
-                      <MessageCircle className="w-4 h-4" />
-                      WhatsApp Us
-                    </Button>
+                  <div>
+                    <label className="block text-gray-700 text-sm font-semibold mb-2">Email *</label>
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
+                      placeholder="your@email.com"
+                      required
+                    />
                   </div>
-                </form>
-              </div>
-            </ElegantCard>
+                </div>
+                
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-gray-700 text-sm font-semibold mb-2">Phone</label>
+                    <Input
+                      type="tel"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
+                      placeholder="+91 78000 74443"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-gray-700 text-sm font-semibold mb-2">Project Type</label>
+                    <select
+                      value={formData.project}
+                      onChange={(e) => setFormData({...formData, project: e.target.value})}
+                      className="w-full h-11 px-3 bg-gray-50 border border-gray-300 rounded-md text-gray-900 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-sm"
+                    >
+                      <option value="">Select project type</option>
+                      <option value="residential">Residential Construction</option>
+                      <option value="commercial">Commercial Building</option>
+                      <option value="turnkey">Turnkey Project</option>
+                      <option value="renovation">Renovation</option>
+                      <option value="interior">Interior Design</option>
+                      <option value="consulting">Project Management</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-2">Budget Range</label>
+                  <select
+                    value={formData.budget}
+                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                    className="w-full h-11 px-3 bg-gray-50 border border-gray-300 rounded-md text-gray-900 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-sm"
+                  >
+                    <option value="">Select budget range</option>
+                    <option value="5-10lakhs">₹5-10 Lakhs</option>
+                    <option value="10-25lakhs">₹10-25 Lakhs</option>
+                    <option value="25-50lakhs">₹25-50 Lakhs</option>
+                    <option value="50lakhs+">₹50+ Lakhs</option>
+                    <option value="custom">Custom Quote</option>
+                  </select>
+                </div>
+                
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-2">Message *</label>
+                  <Textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 min-h-32 text-sm"
+                    placeholder="Tell us about your project requirements, timeline, and any specific needs..."
+                    required
+                  />
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-primary-600/30 hover:scale-105 transition-all flex items-center justify-center gap-2"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
+                  </Button>
+                  
+                  <Button
+                    type="button"
+                    onClick={handleWhatsApp}
+                    className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-green-600/20 transition-all hover:scale-105 flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-white" />
+                    WhatsApp Us
+                  </Button>
+                </div>
+              </form>
+            </div>
           </AnimatedSection>
 
-          {/* Contact Info & Image */}
-          <AnimatedSection animation="slideRight" className="space-y-8">
+          {/* Contact Info & Details */}
+          <AnimatedSection animation="slideRight" className="space-y-6">
             {/* Contact Cards */}
-            <div className="space-y-4">
+            <div className="space-y-3.5">
               {contactInfo.map((contact, index) => (
-                <ElegantCard key={index} className="bg-white/5 backdrop-blur-md border-white/10 group cursor-pointer hover:bg-white/10">
-                  <div className="p-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 estarra-gradient rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <contact.icon className="w-6 h-6 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="text-white font-bold mb-1">{contact.title}</h4>
-                        <a 
-                          href={contact.action}
-                          className="text-purple-300 hover:text-purple-200 transition-colors text-sm font-semibold"
-                        >
-                          {contact.info}
-                        </a>
-                        <p className="text-gray-400 text-xs mt-1">{contact.description}</p>
-                      </div>
+                <div
+                  key={index}
+                  className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all group"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                      <contact.icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-gray-900 font-bold text-sm mb-0.5">{contact.title}</h4>
+                      <a 
+                        href={contact.action}
+                        className="text-primary-600 hover:text-primary-700 transition-colors text-sm font-semibold block"
+                      >
+                        {contact.info}
+                      </a>
+                      <p className="text-gray-500 text-xs mt-0.5">{contact.description}</p>
                     </div>
                   </div>
-                </ElegantCard>
+                </div>
               ))}
             </div>
 
-
-
             {/* Why Choose Us */}
-            <ElegantCard className="bg-white/5 backdrop-blur-md border-white/10">
-              <div className="p-6">
-                <h4 className="text-white font-bold text-lg mb-4">Why Choose Estarra?</h4>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-purple-400" />
-                    <span className="text-gray-300 text-sm">On-time project delivery</span>
+            <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm space-y-4">
+              <h4 className="text-gray-900 font-bold text-lg font-serif">Why Choose Estarra?</h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                    <Clock className="w-4 h-4" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Award className="w-5 h-5 text-purple-400" />
-                    <span className="text-gray-300 text-sm">15+ years of excellence</span>
+                  <span className="text-gray-700 text-sm font-medium">On-time project delivery</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                    <Award className="w-4 h-4" />
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-5 h-5 text-purple-400" />
-                    <span className="text-gray-300 text-sm">24/7 customer support</span>
+                  <span className="text-gray-700 text-sm font-medium">15+ years of excellence</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                    <Phone className="w-4 h-4" />
                   </div>
+                  <span className="text-gray-700 text-sm font-medium">24/7 customer support</span>
                 </div>
               </div>
-            </ElegantCard>
+            </div>
           </AnimatedSection>
         </div>
 
-        {/* Final CTA */}
-        <AnimatedSection animation="fadeIn" delay={800} className="text-center mt-20">
-          <div className="glass-effect rounded-3xl p-8 border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-4">Ready to Get Started?</h3>
-            <p className="text-gray-300 mb-6">
-              Join over 150+ satisfied clients who trusted us with their dream projects.
+        {/* Final CTA Banner */}
+        <AnimatedSection animation="fadeIn" delay={300} className="text-center mt-16">
+          <div className="bg-gradient-to-r from-primary-50 via-luxury-50 to-primary-50 rounded-3xl p-8 sm:p-10 border border-primary-100 shadow-sm">
+            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 font-serif">
+              Ready to Get Started?
+            </h3>
+            <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm sm:text-base">
+              Join over 150+ satisfied clients who trusted us with their dream projects in Lucknow.
             </p>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="estarra-gradient text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-all"
+                className="bg-primary-600 hover:bg-primary-700 text-white font-bold px-8 py-3.5 rounded-full shadow-lg shadow-primary-600/20 hover:scale-105 transition-all"
               >
                 Get Free Quote
               </Button>
               <Button 
                 onClick={handleWhatsApp}
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 font-bold px-6 py-3 rounded-full"
+                className="bg-white hover:bg-gray-50 border-gray-300 text-gray-800 font-bold px-8 py-3.5 rounded-full shadow-sm hover:scale-105 transition-all"
               >
                 Chat on WhatsApp
               </Button>
