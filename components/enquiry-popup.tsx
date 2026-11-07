@@ -31,6 +31,9 @@ const POPULAR_SERVICES = [
   "Renovation & Remodeling",
 ];
 
+// In-memory session flag: resets on browser refresh/reload, but stays true during client-side route navigation
+let hasTriggeredInSession = false;
+
 export default function EnquiryPopup({
   sourcePage,
   delayMs = 1500,
@@ -53,8 +56,11 @@ export default function EnquiryPopup({
     trackEvent("lead_popup_dismissed", { source_page: currentPage });
   }, [currentPage]);
 
-  // Open popup after delayMs
+  // Open popup only once per visit / refresh (does NOT pop up again when clicking between service links)
   useEffect(() => {
+    if (hasTriggeredInSession) return;
+    hasTriggeredInSession = true;
+
     const timer = setTimeout(() => {
       setIsOpen(true);
       trackEvent("lead_popup_opened", { source_page: currentPage });
