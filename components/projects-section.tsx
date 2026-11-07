@@ -4,7 +4,7 @@ import { CardContent } from "@/components/ui/card";
 import { ElegantCard } from "@/components/ui/elegant-card";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { FloatingElements } from "@/components/ui/floating-elements";
-import { ExternalLink, Star, Award, Clock } from "lucide-react";
+import { Star, Award, Clock } from "lucide-react";
 
 const projects = [
   {
@@ -97,7 +97,7 @@ export default function ProjectsSection() {
                       <span>Premium Quality</span>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2">
                     {project.features.map((feature, idx) => (
                       <span 
                         key={idx}
@@ -106,13 +106,6 @@ export default function ProjectsSection() {
                         {feature}
                       </span>
                     ))}
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <button className="flex items-center gap-2 text-black font-semibold">
-                      <span>View Details</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </button>
-                    <div className="h-px bg-black flex-1 ml-6"></div>
                   </div>
                 </CardContent>
               </ElegantCard>
