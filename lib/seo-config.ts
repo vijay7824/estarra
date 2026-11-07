@@ -4,6 +4,8 @@ export const SITE_CONFIG = {
   phoneDisplay: "+91 7392861099",
   phoneRaw: "7392861099",
   phoneTel: "+917392861099",
+  phoneLead: "+917392861099",
+  phoneLeadDisplay: "+91 7392861099",
   whatsappUrl: "https://wa.me/917392861099",
   email: "estarragroup@gmail.com",
   address: {
