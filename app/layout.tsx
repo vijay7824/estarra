@@ -43,7 +43,7 @@ export default function RootLayout({
           >
             {children}
             <VapiCallButton />
-            <EnquiryPopup delayMs={4500} />
+            <EnquiryPopup delayMs={1500} />
           </ThemeProvider>
         </QueryProvider>
       </body>

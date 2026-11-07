@@ -52,7 +52,7 @@ export default function FAQSection({
             <HelpCircle className="w-3.5 h-3.5" />
             Clear Answers
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 font-serif">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900">
             {title}
           </h2>
           {subtitle && (

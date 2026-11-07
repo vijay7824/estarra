@@ -4,19 +4,19 @@ import EnquiryForm from "@/components/enquiry-form";
 import FAQSection, { FAQItem } from "@/components/faq-section";
 import { SEO_PAGES, SITE_CONFIG } from "@/lib/seo-config";
 import {
+  Key,
   ShieldCheck,
+  Clock,
+  Compass,
+  HardHat,
+  Ruler,
   CheckCircle2,
   XCircle,
-  Clock,
-  Key,
-  Compass,
-  FileCheck,
-  Layers,
-  Sparkles,
   Phone,
   ArrowRight,
-  HardHat,
-  Home,
+  Calculator,
+  Camera,
+  FileCheck2,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -39,95 +39,78 @@ export const metadata: Metadata = {
 
 const TURNKEY_FAQS: FAQItem[] = [
   {
-    question: "What does 'Turnkey Construction' mean at Estarra Lucknow?",
+    question: "What exactly is included in a turnkey house construction contract?",
     answer:
-      "Turnkey construction means complete end-to-end project execution under a single contractual agreement. From initial soil testing, 3D architectural plans, and LDA municipal approvals, to civil construction, plumbing, electricals, tiling, painting, modular kitchen, and final deep cleaning — you receive a move-in ready home when you turn the key.",
+      "Turnkey construction means you hand over a vacant plot and receive a 100% finished, ready-to-move-in house. It covers soil testing, architectural 2D/3D design, LDA map approvals, all civil raw materials (cement, steel, bricks, sand), labor, plumbing, electrical wiring, flooring, interior modular kitchen, wardrobes, false ceiling, and exterior painting.",
   },
   {
-    question: "How do you protect clients from material price hikes during construction?",
+    question: "How do you guarantee completion without cost escalations?",
     answer:
-      "Unlike traditional contractors who pass sudden cement and steel price hikes onto homeowners, Estarra locks in your project cost through a signed Bill of Quantities (BOQ) contract. The price agreed upon before breaking ground is the final price you pay.",
+      "We provide a legally binding itemized Bill of Quantities (BOQ) with fixed brand specifications and rates. Even if cement or steel market prices rise during construction, the contracted per sq ft rate remains fixed for our clients.",
   },
   {
-    question: "Do I need to visit the construction site daily?",
+    question: "Can I monitor daily construction progress if I am outside Lucknow or an NRI?",
     answer:
-      "No. Our turnkey service is designed specifically for busy professionals, doctors, government officers, and NRIs. A dedicated senior civil engineer supervises your site daily. You receive regular photo, video, and drone updates on WhatsApp, along with milestone test reports.",
+      "Yes. Over 40% of our turnkey clients are NRIs or professionals living outside Lucknow. We maintain a dedicated WhatsApp project group and client portal providing daily HD photo logs, drone video overviews, and weekly civil milestone reports.",
   },
   {
-    question: "Are interior finishes and modular kitchen included in the turnkey package?",
+    question: "What happens if the project is delayed beyond the committed handover date?",
     answer:
-      "Yes, our turnkey packages can be customized to include modular kitchens (marine ply with soft-close hardware), designer false ceilings, premium wardrobes, vanity counters, and exterior elevation treatments.",
+      "Our turnkey agreements feature a clear liquidated damages clause. If construction is delayed past the agreed completion date (barring force majeure), Estarra pays a monthly financial penalty until handover.",
+  },
+];
+
+const TURNKEY_GALLERY = [
+  {
+    title: "End-to-End Single Contract Handover",
+    desc: "From initial bare plot excavation to fully furnished turnkey handover without coordinating multiple independent vendors.",
+    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800",
+    tag: "Plot to Keys",
   },
   {
-    question: "What payment structure is followed for turnkey construction?",
-    answer:
-      "We operate on a 100% milestone-linked payment structure. You only pay for work that has been completed, inspected, and verified against quality parameters (e.g., foundation complete, ground floor slab cast, brickwork finished, etc.).",
+    title: "100% Managed Material Procurement",
+    desc: "Certified Grade-A cement, Tata Tiscon steel, and factory-tested materials delivered and stored with zero hassle for the homeowner.",
+    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&q=80&w=800",
+    tag: "Material Logistics",
+  },
+  {
+    title: "Move-in Ready Luxury Interiors",
+    desc: "Complete interior carpentry, designer false ceilings, and certified plumbing pressure-tested before the key handover ceremony.",
+    image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800",
+    tag: "Finished Interiors",
   },
 ];
 
 const SCOPES = [
   {
     icon: Compass,
-    title: "1. Architecture & 3D Visuals",
-    desc: "Vastu-compliant layouts, 3D photorealistic elevations, structural blueprints, and electrical/plumbing drawings.",
+    title: "1. Architecture and 3D Visuals",
+    desc: "Complete 2D space planning, structural engineering drawings, and photorealistic 3D day/night elevations.",
   },
   {
-    icon: FileCheck,
-    title: "2. Approvals & Sanctions",
-    desc: "Assistance with LDA, Awas Vikas, or Zila Panchayat municipal map submissions, sanctioning, and compliance documentation.",
+    icon: FileCheck2,
+    title: "2. Approvals and Sanctions",
+    desc: "Assistance with LDA, Awas Vikas, electricity connection, and local municipal clearances.",
   },
   {
     icon: HardHat,
-    title: "3. Heavy Civil Construction",
-    desc: "Engineered foundation, anti-termite treatment, column beams, RCC roof slabs using UltraTech cement and Tata steel.",
+    title: "3. Robust Civil Structure",
+    desc: "Heavy RCC framing, column plinths, red clay bricks, waterproofing, and structural earthquake safety compliance.",
   },
   {
-    icon: Layers,
-    title: "4. Concealed MEP & Infrastructure",
-    desc: "CPVC water lines, drainage, underground & overhead water tanks, and flame-retardant concealed electrical wiring.",
+    icon: Ruler,
+    title: "4. Concealed MEP and Infrastructure",
+    desc: "CPVC water lines, drainage, underground and overhead water tanks, and fire-resistant concealed electrical conduits.",
   },
   {
-    icon: Sparkles,
-    title: "5. Designer Finishes & Interiors",
-    desc: "Premium vitrified tiles / Italian marble, Asian Paints Royale finish, flush doors, UPVC windows, and modular kitchen.",
+    icon: ShieldCheck,
+    title: "5. Designer Finishes and Woodwork",
+    desc: "Italian marble or glazed vitrified tiles, designer flush doors, modular kitchen cabinets, and luxury bath suites.",
   },
   {
     icon: Key,
-    title: "6. Handover with 15-Yr Warranty",
-    desc: "Deep chemical cleaning, comprehensive 400+ quality checklist signoff, 15-year warranty certificate, and key handover.",
-  },
-];
-
-const COMPARISON = [
-  {
-    feature: "Pricing Transparency",
-    traditional: "Vague lump-sum quotes, frequent hidden extras, mid-project disputes",
-    estarra: "Itemized BOQ contract with 0% cost escalation guarantee",
-  },
-  {
-    feature: "Design & Approvals",
-    traditional: "Homeowner must hire separate architects and manage LDA clearances",
-    estarra: "In-house architects & engineers handle design and sanction end-to-end",
-  },
-  {
-    feature: "Material Quality",
-    traditional: "Unverified local brands, frequent material dilution on-site",
-    estarra: "100% Grade-A certified brands (UltraTech, Tata, Jaquar) with lab test proofs",
-  },
-  {
-    feature: "Timeline & Penalties",
-    traditional: "Delays of 3-9 months are customary with zero accountability",
-    estarra: "Contractual delivery date backed with delay compensation penalty clause",
-  },
-  {
-    feature: "Site Supervision",
-    traditional: "Left to unsupervised sub-contractors or local mistris",
-    estarra: "Dedicated qualified civil engineer on-site daily with photo/video updates",
-  },
-  {
-    feature: "Post-Handover Support",
-    traditional: "Contractor disappears immediately after final payment",
-    estarra: "15-Year structural warranty + 1-Year free maintenance support",
+    title: "6. Snag Audit and Final Handover",
+    desc: "400+ point quality audit, deep cleaning, testing all fixtures, and handing over the keys on time.",
   },
 ];
 
@@ -135,7 +118,7 @@ export default function TurnkeyConstructionPage() {
   return (
     <LandingPageLayout pageName="Turnkey Construction Lucknow">
       {/* Hero Section */}
-      <section className="relative bg-white text-gray-900 pt-8 pb-16 overflow-hidden">
+      <section className="relative bg-white text-gray-900 pt-8 pb-16 overflow-hidden border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Column */}
@@ -145,7 +128,7 @@ export default function TurnkeyConstructionPage() {
                 Single-Contract Turnkey House Construction in Lucknow
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight text-gray-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 Best <span className="text-amber-500">Turnkey Construction</span> Company in Lucknow
               </h1>
 
@@ -183,19 +166,34 @@ export default function TurnkeyConstructionPage() {
                   href="/house-construction-cost-lucknow"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-900 font-medium px-6 py-3.5 rounded-full border border-gray-300 transition-all hover:scale-105"
                 >
+                  <Calculator className="w-4 h-4 text-amber-600" />
                   Estimate Turnkey Cost
                 </Link>
               </div>
             </div>
 
-            {/* Right Lead Capture Box */}
-            <div id="lead-form-section" className="lg:col-span-5 scroll-mt-24">
+            {/* Right Lead Capture Box with Visual */}
+            <div id="lead-form-section" className="lg:col-span-5 space-y-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                <img
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=1200"
+                  alt="Turnkey Luxury Home Handover Lucknow"
+                  className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end p-5">
+                  <div className="text-white">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-amber-400">Delivered Turnkey</span>
+                    <h3 className="text-lg font-bold">Independent Villa Handed Over On Time • Shaheed Path</h3>
+                  </div>
+                </div>
+              </div>
+
               <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl text-gray-900 border border-gray-200">
                 <div className="mb-5 text-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
                     No Contractor Hassle
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-bold font-serif text-gray-900 mt-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-2">
                     Start Your Turnkey Project
                   </h2>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">
@@ -206,7 +204,7 @@ export default function TurnkeyConstructionPage() {
                 <EnquiryForm
                   sourcePage="Turnkey Construction Lucknow - Hero Form"
                   defaultService="Complete Turnkey Construction"
-                  buttonText="Schedule Turnkey Meeting & Quote"
+                  buttonText="Schedule Turnkey Meeting and Quote"
                 />
               </div>
             </div>
@@ -214,14 +212,59 @@ export default function TurnkeyConstructionPage() {
         </div>
       </section>
 
+      {/* Visual Showcase Gallery */}
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-wider text-amber-600 font-bold">End-to-End Delivery</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+              Turnkey Construction In Action
+            </h2>
+            <p className="text-gray-600 mt-3 text-sm sm:text-base">
+              A single point of contact for architectural drawings, civil engineering, material logistics, and finishing.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {TURNKEY_GALLERY.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow group flex flex-col"
+              >
+                <div className="relative overflow-hidden h-56">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
+                    {item.tag}
+                  </span>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Scope of Work */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
               Everything Under One Roof
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
               Comprehensive Scope of Work (Design to Key Handover)
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mt-3">
@@ -235,12 +278,12 @@ export default function TurnkeyConstructionPage() {
               return (
                 <div
                   key={scope.title}
-                  className="bg-white rounded-2xl p-7 border border-gray-200/80 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
+                  className="bg-white rounded-2xl p-7 border border-gray-200 shadow-xs hover:shadow-md transition-all hover:-translate-y-1"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-700 mb-4">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 font-serif">{scope.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900">{scope.title}</h3>
                   <p className="text-gray-600 text-sm mt-2 leading-relaxed">{scope.desc}</p>
                 </div>
               );
@@ -249,95 +292,117 @@ export default function TurnkeyConstructionPage() {
         </div>
       </section>
 
-      {/* Comparison Matrix: Traditional Contractor vs Estarra Turnkey */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+      {/* Comparison: Estarra vs Local Contractor */}
+      <section className="py-20 bg-gray-50 border-b border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
-              The Estarra Difference
+              Why Turnkey Matters
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
-              Traditional Contractor vs. Estarra Turnkey Construction
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
+              Estarra Turnkey vs Traditional Local Contractors
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base mt-3">
-              Why leading Lucknow families and professionals trust Estarra over unorganized local contractors.
-            </p>
           </div>
 
-          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
-            <table className="w-full text-left border-collapse min-w-[640px]">
-              <thead>
-                <tr className="bg-gray-900 text-white">
-                  <th className="py-4 px-6 text-sm font-semibold font-serif">Comparison Parameter</th>
-                  <th className="py-4 px-6 text-sm font-semibold font-serif text-red-300">
-                    Traditional Local Contractor
-                  </th>
-                  <th className="py-4 px-6 text-sm font-semibold font-serif text-emerald-300">
-                    Estarra Turnkey Construction
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100 text-sm">
-                {COMPARISON.map((row, idx) => (
-                  <tr
-                    key={row.feature}
-                    className={idx % 2 === 0 ? "bg-white" : "bg-gray-50/60"}
-                  >
-                    <td className="py-4 px-6 font-semibold text-gray-900">{row.feature}</td>
-                    <td className="py-4 px-6 text-gray-600">
-                      <div className="flex items-start gap-2">
-                        <XCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                        <span>{row.traditional}</span>
+          <div className="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-lg">
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs sm:text-sm">
+                <thead className="bg-gray-900 text-white">
+                  <tr>
+                    <th className="py-4 px-6 font-semibold">Comparison Parameter</th>
+                    <th className="py-4 px-6 font-semibold text-red-300">
+                      Traditional Local Contractor
+                    </th>
+                    <th className="py-4 px-6 font-semibold text-emerald-300">
+                      Estarra Turnkey Engineering
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100 text-gray-700">
+                  <tr className="hover:bg-gray-50">
+                    <td className="py-4 px-6 font-semibold text-gray-900">Cost Transparency</td>
+                    <td className="py-4 px-6 text-red-600">
+                      <div className="flex items-center gap-1.5">
+                        <XCircle className="w-4 h-4 shrink-0" />
+                        <span>Vague verbal quotes, 25-40% extra costs later</span>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-gray-900 bg-emerald-50/40">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span className="font-medium text-emerald-950">{row.estarra}</span>
+                    <td className="py-4 px-6 text-emerald-700 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                        <span>Fixed per-sqft BOQ contract, 0% escalation</span>
                       </div>
                     </td>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+
+                  <tr className="hover:bg-gray-50">
+                    <td className="py-4 px-6 font-semibold text-gray-900">Timeline Commitment</td>
+                    <td className="py-4 px-6 text-red-600">
+                      <div className="flex items-center gap-1.5">
+                        <XCircle className="w-4 h-4 shrink-0" />
+                        <span>Frequent delays with zero accountability</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-6 text-emerald-700 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                        <span>Contractual date with delay penalty clause</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-50">
+                    <td className="py-4 px-6 font-semibold text-gray-900">Material Quality</td>
+                    <td className="py-4 px-6 text-red-600">
+                      <div className="flex items-center gap-1.5">
+                        <XCircle className="w-4 h-4 shrink-0" />
+                        <span>Unbranded cement and secondary steel</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-6 text-emerald-700 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                        <span>100% UltraTech/ACC & Tata Tiscon Fe550D</span>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr className="hover:bg-gray-50">
+                    <td className="py-4 px-6 font-semibold text-gray-900">Structural Warranty</td>
+                    <td className="py-4 px-6 text-red-600">
+                      <div className="flex items-center gap-1.5">
+                        <XCircle className="w-4 h-4 shrink-0" />
+                        <span>No warranty once payment is completed</span>
+                      </div>
+                    </td>
+                    <td className="py-4 px-6 text-emerald-700 font-medium">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
+                        <span>15-Year legal structural guarantee</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Accordion */}
-      <FAQSection
-        title="Turnkey Construction FAQs — Lucknow"
-        subtitle="Clarifying how turnkey house construction works, contracts, and timelines in Lucknow."
-        faqs={TURNKEY_FAQS}
-      />
-
-      {/* Bottom CTA Banner */}
-      <section className="py-14 bg-primary-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif">
-            Build Your Luxury Home in Lucknow Without the Daily Stress
-          </h2>
-          <p className="text-primary-200 text-sm sm:text-base">
-            Contact our senior engineering team to review your plot, map out 3D designs, and establish fixed project budgets.
-          </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`tel:${SITE_CONFIG.phoneTel}`}
-              className="inline-flex items-center gap-2 bg-white text-primary-900 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm shadow-lg transition-transform hover:scale-105"
-            >
-              <Phone className="w-4 h-4 text-primary-700" />
-              Call Directly: {SITE_CONFIG.phoneDisplay}
-            </a>
-            <a
-              href="#lead-form-section"
-              className="inline-flex items-center gap-2 bg-primary-700 hover:bg-primary-600 text-white font-semibold px-6 py-3 rounded-full text-sm border border-primary-500 transition-transform hover:scale-105"
-            >
-              Request Turnkey Proposal
-            </a>
+      {/* FAQs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
+              Turnkey Queries
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">
+              Frequently Asked Turnkey Questions
+            </h2>
           </div>
+          <FAQSection faqs={TURNKEY_FAQS} />
         </div>
       </section>
     </LandingPageLayout>
   );
 }
-

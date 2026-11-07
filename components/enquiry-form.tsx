@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckCircle2, Loader2, Phone, Send, MessageSquare, ExternalLink } from "lucide-react";
+import { CheckCircle2, Loader2, Phone, Send, MessageSquare, ExternalLink, ShieldCheck } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/seo-config";
 import { trackEvent } from "@/lib/analytics";
 
@@ -36,8 +36,10 @@ const SERVICES = [
   "Complete Turnkey Construction",
   "Architectural & 3D Plan Design",
   "Villa & Duplex Construction",
+  "Commercial Building Construction",
+  "Interior Design & Execution",
   "Renovation & Floor Addition",
-  "Site Inspection & Cost Estimation",
+  "Project Management & Consulting",
 ];
 
 const BUDGET_RANGES = [
@@ -116,7 +118,6 @@ export default function EnquiryForm({
       try {
         window.open(waUrl, "_blank");
       } catch (openErr) {
-        // In case browser popup blocker activates
         console.warn("Auto-popup blocked, user can click button", openErr);
       }
 
@@ -134,34 +135,36 @@ export default function EnquiryForm({
 
   if (submitted) {
     return (
-      <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-2xl p-6 md:p-8 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
-        <div className="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center mx-auto shadow-lg shadow-green-500/20">
-          <CheckCircle2 className="w-8 h-8" />
+      <div className="bg-gray-50 border border-gray-200 rounded-xl p-6 text-center space-y-3.5 animate-in fade-in zoom-in-95 duration-200">
+        <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+          <CheckCircle2 className="w-6 h-6" />
         </div>
-        <h3 className="text-xl md:text-2xl font-bold text-gray-900 font-serif">
-          Enquiry Received & Sent to WhatsApp!
-        </h3>
-        <p className="text-gray-600 max-w-md mx-auto text-sm md:text-base leading-relaxed">
-          Your details have been saved to our database and dispatched to our official WhatsApp (<strong>+91 7392861099</strong>).
-        </p>
+        <div>
+          <h3 className="text-lg font-bold text-gray-900 tracking-tight">
+            Consultation Request Logged
+          </h3>
+          <p className="text-gray-600 text-xs sm:text-sm mt-1 max-w-sm mx-auto leading-relaxed">
+            Your requirements have been dispatched to our engineering desk via WhatsApp (<strong>+91 7392861099</strong>).
+          </p>
+        </div>
 
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5">
           <a
             href={submittedWaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold px-6 py-3 rounded-full text-sm shadow-lg shadow-green-600/30 transition-all hover:scale-105"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold px-5 py-2.5 rounded-lg text-xs shadow-sm transition-all"
           >
-            <MessageSquare className="w-4 h-4 fill-white" />
-            <span>Open WhatsApp (+91 7392861099)</span>
-            <ExternalLink className="w-3.5 h-3.5" />
+            <MessageSquare className="w-3.5 h-3.5 fill-white" />
+            <span>Open in WhatsApp</span>
+            <ExternalLink className="w-3 h-3" />
           </a>
           <a
-            href={`tel:${SITE_CONFIG.phoneTel}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-800 font-semibold px-5 py-3 rounded-full text-sm border border-gray-300 shadow-sm transition-all hover:scale-105"
+            href={`tel:${SITE_CONFIG.phoneLead}`}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 bg-white hover:bg-gray-100 text-gray-800 font-semibold px-4 py-2.5 rounded-lg text-xs border border-gray-300 shadow-xs transition-all"
           >
-            <Phone className="w-4 h-4 text-primary-600" />
-            Call: {SITE_CONFIG.phoneDisplay}
+            <Phone className="w-3.5 h-3.5 text-gray-600" />
+            <span>Call Desk: {SITE_CONFIG.phoneLeadDisplay}</span>
           </a>
         </div>
       </div>
@@ -169,18 +172,18 @@ export default function EnquiryForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-3.5 text-left">
       {errorMsg && (
-        <div className="p-3 bg-red-50 border border-red-200 text-red-700 rounded-lg text-sm">
+        <div className="p-2.5 bg-red-50 border border-red-200 text-red-700 rounded-lg text-xs font-medium">
           {errorMsg}
         </div>
       )}
 
-      <div className={compact ? "space-y-3" : "grid grid-cols-1 md:grid-cols-2 gap-4"}>
+      <div className={compact ? "grid grid-cols-1 sm:grid-cols-2 gap-3" : "grid grid-cols-1 md:grid-cols-2 gap-3.5"}>
         {/* Name */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-name" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
-            Your Full Name *
+        <div className="space-y-1">
+          <Label htmlFor="lead-name" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
+            Full Name *
           </Label>
           <Input
             id="lead-name"
@@ -189,17 +192,17 @@ export default function EnquiryForm({
             placeholder="e.g. Rahul Verma"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-white border-gray-300 focus:border-primary-600 focus:ring-primary-600 text-sm h-11"
+            className="bg-gray-50/60 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-lg text-xs sm:text-sm h-10 transition-all"
           />
         </div>
 
         {/* Phone */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-phone" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
-            10-Digit Mobile Number *
+        <div className="space-y-1">
+          <Label htmlFor="lead-phone" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
+            Mobile Number *
           </Label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm font-medium">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 font-mono text-xs">
               +91
             </span>
             <Input
@@ -210,21 +213,21 @@ export default function EnquiryForm({
               placeholder="7392861099"
               value={phone}
               onChange={(e) => setPhone(e.target.value.replace(/\D/g, ""))}
-              className="bg-white border-gray-300 pl-12 focus:border-primary-600 focus:ring-primary-600 text-sm h-11"
+              className="bg-gray-50/60 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:ring-1 focus:ring-gray-900 pl-11 rounded-lg text-xs sm:text-sm font-mono h-10 transition-all"
             />
           </div>
         </div>
 
         {/* Service */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-service" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
+        <div className="space-y-1">
+          <Label htmlFor="lead-service" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
             Service Required
           </Label>
           <select
             id="lead-service"
             value={service}
             onChange={(e) => setService(e.target.value)}
-            className="w-full h-11 px-3 text-sm rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            className="w-full h-10 px-3 text-xs sm:text-sm rounded-lg border border-gray-200 bg-gray-50/60 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 text-gray-900 transition-all"
           >
             {SERVICES.map((s) => (
               <option key={s} value={s}>
@@ -235,15 +238,15 @@ export default function EnquiryForm({
         </div>
 
         {/* Plot Location */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-location" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
-            Lucknow Plot Location *
+        <div className="space-y-1">
+          <Label htmlFor="lead-location" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
+            Lucknow Location *
           </Label>
           <select
             id="lead-location"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
-            className="w-full h-11 px-3 text-sm rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            className="w-full h-10 px-3 text-xs sm:text-sm rounded-lg border border-gray-200 bg-gray-50/60 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 text-gray-900 transition-all"
           >
             {LUCKNOW_LOCATIONS.map((loc) => (
               <option key={loc} value={loc}>
@@ -254,9 +257,9 @@ export default function EnquiryForm({
         </div>
 
         {/* Built-up Area */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-area" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
-            Approx. Built-up Area (Sq Ft)
+        <div className="space-y-1">
+          <Label htmlFor="lead-area" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
+            Plot / Built-up Area (Sq Ft)
           </Label>
           <Input
             id="lead-area"
@@ -264,20 +267,20 @@ export default function EnquiryForm({
             placeholder="e.g. 1500"
             value={area}
             onChange={(e) => setArea(e.target.value)}
-            className="bg-white border-gray-300 focus:border-primary-600 focus:ring-primary-600 text-sm h-11"
+            className="bg-gray-50/60 border-gray-200 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:ring-1 focus:ring-gray-900 rounded-lg text-xs sm:text-sm h-10 transition-all"
           />
         </div>
 
         {/* Budget */}
-        <div className="space-y-1.5 text-left">
-          <Label htmlFor="lead-budget" className="text-xs font-semibold uppercase tracking-wider text-gray-700">
-            Estimated Budget
+        <div className="space-y-1">
+          <Label htmlFor="lead-budget" className="text-[11px] font-mono uppercase tracking-wider text-gray-500 font-medium">
+            Approx. Budget
           </Label>
           <select
             id="lead-budget"
             value={budget}
             onChange={(e) => setBudget(e.target.value)}
-            className="w-full h-11 px-3 text-sm rounded-md border border-gray-300 bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-600"
+            className="w-full h-10 px-3 text-xs sm:text-sm rounded-lg border border-gray-200 bg-gray-50/60 hover:border-gray-300 focus:bg-white focus:border-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 text-gray-900 transition-all"
           >
             {BUDGET_RANGES.map((b) => (
               <option key={b} value={b}>
@@ -288,27 +291,30 @@ export default function EnquiryForm({
         </div>
       </div>
 
-      <Button
-        type="submit"
-        disabled={loading}
-        className="w-full h-12 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl shadow-lg shadow-primary-600/30 hover:shadow-xl hover:shadow-primary-600/40 transition-all duration-300 text-sm md:text-base flex items-center justify-center gap-2 group"
-      >
-        {loading ? (
-          <>
-            <Loader2 className="w-5 h-5 animate-spin" />
-            <span>Sending to WhatsApp & saving...</span>
-          </>
-        ) : (
-          <>
-            <span>{buttonText}</span>
-            <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </>
-        )}
-      </Button>
+      <div className="pt-1.5">
+        <Button
+          type="submit"
+          disabled={loading}
+          className="w-full h-11 bg-gray-950 hover:bg-black text-white font-medium rounded-lg shadow-sm hover:shadow transition-all text-xs sm:text-sm flex items-center justify-center gap-2 group cursor-pointer"
+        >
+          {loading ? (
+            <>
+              <Loader2 className="w-4 h-4 animate-spin text-amber-400" />
+              <span>Transmitting to Engineering Desk...</span>
+            </>
+          ) : (
+            <>
+              <span>{buttonText}</span>
+              <Send className="w-3.5 h-3.5 text-amber-400 group-hover:translate-x-0.5 transition-transform" />
+            </>
+          )}
+        </Button>
+      </div>
 
-      <p className="text-[11px] text-gray-600 text-center">
-        🔒 Details are securely stored and directly dispatched to our engineering team on WhatsApp (+91 7392861099).
-      </p>
+      <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-gray-500 pt-0.5">
+        <ShieldCheck className="w-3 h-3 text-emerald-600 shrink-0" />
+        <span>No spam • Direct dispatch to engineering WhatsApp (+91 7392861099)</span>
+      </div>
     </form>
   );
 }

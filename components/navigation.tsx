@@ -1,16 +1,94 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, X, ArrowRight, Calculator } from "lucide-react";
+import {
+  Phone,
+  Menu,
+  X,
+  ArrowRight,
+  ChevronDown,
+  Home,
+  Calculator,
+  Building,
+  Key,
+  Castle,
+  Building2,
+  Compass,
+  Armchair,
+  Hammer,
+  ClipboardCheck,
+  BookOpen,
+} from "lucide-react";
 import { SITE_CONFIG } from "@/lib/seo-config";
+
+interface ServiceItem {
+  name: string;
+  href: string;
+  icon: any;
+  desc: string;
+}
+
+const SERVICES_LIST: ServiceItem[] = [
+  {
+    name: "Residential Construction",
+    href: "/residential-construction-lucknow",
+    icon: Home,
+    desc: "Independent homes, duplexes & builder floors",
+  },
+  {
+    name: "Turnkey Construction",
+    href: "/turnkey-construction-lucknow",
+    icon: Key,
+    desc: "Complete design to key handover solutions",
+  },
+  {
+    name: "Villa Construction",
+    href: "/villa-construction-lucknow",
+    icon: Castle,
+    desc: "Bespoke luxury bungalows & custom estates",
+  },
+  {
+    name: "Commercial Construction",
+    href: "/commercial-construction-lucknow",
+    icon: Building2,
+    desc: "Offices, retail showrooms & complexes",
+  },
+  {
+    name: "Architecture and Planning",
+    href: "/architecture-planning-lucknow",
+    icon: Compass,
+    desc: "Vastu 2D layouts, 3D elevations and LDA map sanction",
+  },
+  {
+    name: "Interior Design and Execution",
+    href: "/interior-design-lucknow",
+    icon: Armchair,
+    desc: "Modular kitchens, wardrobes and luxury finishes",
+  },
+  {
+    name: "Renovation and Remodeling",
+    href: "/renovation-remodeling-lucknow",
+    icon: Hammer,
+    desc: "Floor additions, structural repairs and waterproofing",
+  },
+  {
+    name: "Project Management and Consulting",
+    href: "/project-management-consulting-lucknow",
+    icon: ClipboardCheck,
+    desc: "Quality audits, BOQ verification and PMC supervision",
+  },
+];
 
 export default function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesExpanded, setMobileServicesExpanded] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +98,23 @@ export default function Navigation() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setServicesDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Close dropdown on route change
+  useEffect(() => {
+    setServicesDropdownOpen(false);
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   const handleSectionClick = (sectionId: string) => {
     setMobileMenuOpen(false);
@@ -43,22 +138,13 @@ export default function Navigation() {
     setMobileMenuOpen(false);
   };
 
-  const pageLinks = [
-    { name: "Home", href: "/", isPage: true },
-    { name: "Residential", href: "/residential-construction-lucknow", isPage: true },
-    { name: "Turnkey", href: "/turnkey-construction-lucknow", isPage: true },
-    { name: "Cost Calculator", href: "/house-construction-cost-lucknow", isPage: true, isHighlight: true },
-    { name: "Services", sectionId: "services", isPage: false },
-    { name: "Projects", sectionId: "projects", isPage: false },
-    { name: "About", sectionId: "about", isPage: false },
-    { name: "Contact", sectionId: "contact", isPage: false },
-  ];
+  const isServiceActive = SERVICES_LIST.some((s) => pathname === s.href);
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-gray-200/80 shadow-sm py-2"
+          ? "bg-white/95 backdrop-blur-md border-b border-gray-200/90 shadow-sm py-2"
           : "bg-white/90 backdrop-blur-sm border-b border-gray-100 py-2.5"
       }`}
     >
@@ -73,45 +159,137 @@ export default function Navigation() {
             />
           </Link>
 
-          {/* Desktop Navigation Links - Sleek & Uncluttered */}
-          <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
-            {pageLinks.map((item) => {
-              const isActive = item.isPage && pathname === item.href;
+          {/* Desktop Navigation Tabs */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            {/* 1. Home */}
+            <Link
+              href="/"
+              className={`px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap ${
+                pathname === "/"
+                  ? "bg-primary-50 text-primary-700 font-semibold shadow-xs"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              }`}
+            >
+              Home
+            </Link>
 
-              if (item.isPage) {
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href!}
-                    className={`px-2 xl:px-2.5 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap ${
-                      isActive
-                        ? "bg-primary-50 text-primary-700 font-semibold shadow-xs"
-                        : item.isHighlight
-                        ? "text-amber-700 hover:text-amber-800 hover:bg-amber-50/80 font-semibold"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                );
-              }
+            {/* 2. Cost Calculator */}
+            <Link
+              href="/house-construction-cost-lucknow"
+              className={`px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                pathname === "/house-construction-cost-lucknow"
+                  ? "bg-amber-100 text-amber-900 font-semibold"
+                  : "text-amber-700 hover:text-amber-800 hover:bg-amber-50/80 font-semibold"
+              }`}
+            >
+              <Calculator className="w-3.5 h-3.5 text-amber-600" />
+              <span>Cost Calculator</span>
+            </Link>
 
-              return (
-                <button
-                  key={item.name}
-                  type="button"
-                  onClick={() => handleSectionClick(item.sectionId!)}
-                  className="px-2 xl:px-2.5 py-1.5 rounded-full text-xs xl:text-[13px] font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all whitespace-nowrap"
-                >
-                  {item.name}
-                </button>
-              );
-            })}
+            {/* 3. Services Dropdown with Down Arrow */}
+            <div
+              ref={dropdownRef}
+              className="relative"
+              onMouseEnter={() => setServicesDropdownOpen(true)}
+              onMouseLeave={() => setServicesDropdownOpen(false)}
+            >
+              <button
+                type="button"
+                onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
+                aria-expanded={servicesDropdownOpen}
+                className={`px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap flex items-center gap-1 ${
+                  isServiceActive || servicesDropdownOpen
+                    ? "bg-primary-50 text-primary-700 font-semibold"
+                    : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+              >
+                <span>Services</span>
+                <ChevronDown
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    servicesDropdownOpen ? "rotate-180 text-primary-700" : "text-gray-500"
+                  }`}
+                />
+              </button>
+
+              {/* Modern Mega Dropdown Card */}
+              {servicesDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 w-[560px] bg-white rounded-2xl shadow-2xl border border-gray-200/90 p-4 grid grid-cols-2 gap-2 animate-in fade-in zoom-in-95 duration-200 z-50">
+                  <div className="col-span-2 pb-2 mb-1 border-b border-gray-100 flex items-center justify-between text-[11px] text-gray-500 font-semibold uppercase tracking-wider">
+                    <span>Our Construction & Engineering Services</span>
+                    <button
+                      type="button"
+                      onClick={() => handleSectionClick("services")}
+                      className="text-primary-600 hover:underline"
+                    >
+                      View All Services
+                    </button>
+                  </div>
+
+                  {SERVICES_LIST.map((service) => {
+                    const Icon = service.icon;
+                    const isActive = pathname === service.href;
+
+                    return (
+                      <Link
+                        key={service.name}
+                        href={service.href}
+                        className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                          isActive
+                            ? "bg-primary-50/80 text-primary-900 border border-primary-200/60"
+                            : "hover:bg-gray-50 text-gray-800"
+                        }`}
+                      >
+                        <div className="w-8 h-8 rounded-lg bg-primary-100/70 flex items-center justify-center text-primary-700 shrink-0 mt-0.5">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <div className="text-left">
+                          <div className="text-xs font-bold leading-snug">{service.name}</div>
+                          <div className="text-[11px] text-gray-500 line-clamp-1 mt-0.5 font-normal">
+                            {service.desc}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* 4. Projects */}
+            <button
+              type="button"
+              onClick={() => handleSectionClick("projects")}
+              className="px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all whitespace-nowrap"
+            >
+              Projects
+            </button>
+
+            {/* 5. Home Building Guide */}
+            <Link
+              href="/home-building-guide-lucknow"
+              className={`px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium transition-all whitespace-nowrap flex items-center gap-1.5 ${
+                pathname === "/home-building-guide-lucknow"
+                  ? "bg-primary-50 text-primary-700 font-semibold shadow-xs"
+                  : "text-gray-700 hover:text-gray-900 hover:bg-gray-100"
+              }`}
+            >
+              <BookOpen className="w-3.5 h-3.5 text-primary-600" />
+              <span>Home Building Guide</span>
+            </Link>
+
+            {/* 6. Contact */}
+            <button
+              type="button"
+              onClick={() => handleSectionClick("contact")}
+              className="px-3 py-1.5 rounded-full text-xs xl:text-[13px] font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all whitespace-nowrap"
+            >
+              Contact
+            </button>
           </nav>
 
-          {/* Right Action Elements - Compact & Clean */}
+          {/* Right Action Buttons */}
           <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-            {/* Phone Number - Minimalist */}
+            {/* Phone Pill */}
             <a
               href={`tel:${SITE_CONFIG.phoneTel}`}
               className="hidden md:flex items-center gap-1.5 text-xs font-semibold text-gray-700 hover:text-primary-600 px-2.5 py-1.5 rounded-full hover:bg-gray-100 transition-colors whitespace-nowrap"
@@ -123,17 +301,17 @@ export default function Navigation() {
               <span className="hidden xl:inline">{SITE_CONFIG.phoneDisplay}</span>
             </a>
 
-            {/* Get Free Quote Button - Compact Pill */}
+            {/* Get Free Quote CTA */}
             <Button
               onClick={handleGetQuote}
               size="sm"
-              className="bg-primary-600 hover:bg-primary-700 text-white font-medium text-xs px-3 sm:px-4 py-1.5 h-8 rounded-full shadow-sm transition-all hover:scale-105 whitespace-nowrap"
+              className="bg-primary-600 hover:bg-primary-700 text-white font-medium text-xs px-3.5 sm:px-4 py-1.5 h-8 rounded-full shadow-sm transition-all hover:scale-105 whitespace-nowrap"
             >
               <span>Get Free Quote</span>
               <ArrowRight className="w-3 h-3 ml-1" />
             </Button>
 
-            {/* Mobile Menu Toggle Button */}
+            {/* Mobile Menu Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -149,7 +327,8 @@ export default function Navigation() {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-gray-200 px-4 pt-3 pb-5 space-y-1 shadow-2xl animate-in slide-in-from-top-2 duration-200">
+        <div className="lg:hidden bg-white/98 backdrop-blur-xl border-b border-gray-200 px-4 pt-3 pb-5 space-y-1 shadow-2xl animate-in slide-in-from-top-2 duration-200 max-h-[85vh] overflow-y-auto">
+          {/* Quick Top Chips */}
           <div className="grid grid-cols-2 gap-1.5 pb-2 border-b border-gray-100">
             <Link
               href="/"
@@ -173,54 +352,83 @@ export default function Navigation() {
             </Link>
           </div>
 
-          <div className="py-2 space-y-1">
-            <Link
-              href="/residential-construction-lucknow"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-xl text-xs sm:text-sm font-medium ${
-                pathname === "/residential-construction-lucknow"
-                  ? "bg-primary-50 text-primary-700 font-semibold"
-                  : "text-gray-700 hover:bg-gray-50"
-              }`}
+          {/* Services Accordion with Toggle Arrow */}
+          <div className="pt-1.5 pb-1">
+            <button
+              type="button"
+              onClick={() => setMobileServicesExpanded(!mobileServicesExpanded)}
+              className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-gray-800 hover:bg-gray-50"
             >
-              Residential Construction
-            </Link>
+              <span className="flex items-center gap-2">
+                <Building className="w-4 h-4 text-primary-600" />
+                <span>Our Services</span>
+              </span>
+              <ChevronDown
+                className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
+                  mobileServicesExpanded ? "rotate-180 text-primary-600" : ""
+                }`}
+              />
+            </button>
 
-            <Link
-              href="/turnkey-construction-lucknow"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-xl text-xs sm:text-sm font-medium ${
-                pathname === "/turnkey-construction-lucknow"
-                  ? "bg-primary-50 text-primary-700 font-semibold"
-                  : "text-gray-700 hover:bg-gray-50"
-              }`}
-            >
-              Turnkey Construction
-            </Link>
-
-            {["Services", "Projects", "About", "Contact"].map((sec) => (
-              <button
-                key={sec}
-                type="button"
-                onClick={() => handleSectionClick(sec.toLowerCase())}
-                className="block w-full text-left px-3 py-2 rounded-xl text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50"
-              >
-                {sec}
-              </button>
-            ))}
+            {mobileServicesExpanded && (
+              <div className="pl-4 pr-1 py-1 space-y-1 bg-gray-50/70 rounded-xl mt-1 border border-gray-100">
+                {SERVICES_LIST.map((s) => (
+                  <Link
+                    key={s.name}
+                    href={s.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`block px-3 py-2 rounded-lg text-xs font-medium ${
+                      pathname === s.href ? "bg-primary-100/70 text-primary-800 font-bold" : "text-gray-700"
+                    }`}
+                  >
+                    {s.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
 
-          <div className="pt-2 border-t border-gray-100 flex items-center gap-2">
+          {/* Remaining Independent Tabs */}
+          <button
+            type="button"
+            onClick={() => handleSectionClick("projects")}
+            className="block w-full text-left px-3 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            Projects
+          </button>
+
+          <Link
+            href="/home-building-guide-lucknow"
+            onClick={() => setMobileMenuOpen(false)}
+            className={`block px-3 py-2.5 rounded-xl text-xs sm:text-sm font-medium ${
+              pathname === "/home-building-guide-lucknow"
+                ? "bg-primary-50 text-primary-700 font-semibold"
+                : "text-gray-700 hover:bg-gray-50"
+            }`}
+          >
+            Home Building Guide
+          </Link>
+
+          <button
+            type="button"
+            onClick={() => handleSectionClick("contact")}
+            className="block w-full text-left px-3 py-2.5 rounded-xl text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50"
+          >
+            Contact
+          </button>
+
+          {/* Mobile Bottom Contact Call & Quote */}
+          <div className="pt-3 border-t border-gray-100 flex items-center gap-2">
             <a
               href={`tel:${SITE_CONFIG.phoneTel}`}
-              className="flex-1 flex items-center justify-center gap-1.5 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold"
+              className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl text-xs font-semibold"
             >
               <Phone className="w-3.5 h-3.5 text-primary-600" />
               <span>{SITE_CONFIG.phoneDisplay}</span>
             </a>
             <Button
               onClick={handleGetQuote}
-              className="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-medium text-xs py-2 rounded-xl shadow-xs"
+              className="flex-1 bg-primary-600 hover:bg-primary-700 text-white font-medium text-xs py-2.5 rounded-xl shadow-xs"
             >
               Get Free Quote
             </Button>

@@ -175,7 +175,7 @@ export default function CostCalculator() {
               <Calculator className="w-3.5 h-3.5" />
               Lucknow 2025-2026 Construction Rates
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif mt-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold mt-2">
               Interactive House Construction Cost Estimator
             </h2>
             <p className="text-gray-300 text-xs sm:text-sm mt-1">
@@ -185,7 +185,7 @@ export default function CostCalculator() {
 
           <div className="text-left sm:text-right shrink-0">
             <span className="text-xs text-gray-400 uppercase tracking-wider block">Estimated Total Cost</span>
-            <span className="text-3xl sm:text-4xl font-extrabold text-amber-400 block font-serif">
+            <span className="text-3xl sm:text-4xl font-extrabold text-amber-400 block">
               {formatLakhs(totalEstimatedCost)}
             </span>
             <span className="text-xs text-gray-300">
@@ -199,7 +199,7 @@ export default function CostCalculator() {
         {/* Step 1: Area Selection */}
         <div className="space-y-3">
           <div className="flex items-center justify-between">
-            <Label className="text-sm sm:text-base font-bold text-gray-900 font-serif">
+            <Label className="text-sm sm:text-base font-bold text-gray-900">
               Step 1: Plot / Floor Footprint Area (Sq Ft)
             </Label>
             <span className="text-sm font-semibold text-primary-700 bg-primary-50 px-3 py-1 rounded-full">
@@ -240,7 +240,7 @@ export default function CostCalculator() {
 
         {/* Step 2: Number of Floors */}
         <div className="space-y-3">
-          <Label className="text-sm sm:text-base font-bold text-gray-900 font-serif">
+          <Label className="text-sm sm:text-base font-bold text-gray-900">
             Step 2: Number of Floors
           </Label>
 
@@ -272,7 +272,7 @@ export default function CostCalculator() {
 
         {/* Step 3: Specification Tiers */}
         <div className="space-y-3">
-          <Label className="text-sm sm:text-base font-bold text-gray-900 font-serif">
+          <Label className="text-sm sm:text-base font-bold text-gray-900">
             Step 3: Construction Quality Tier
           </Label>
 
@@ -297,7 +297,7 @@ export default function CostCalculator() {
                   )}
 
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-gray-900 font-serif">{item.name}</h3>
+                    <h3 className="font-bold text-gray-900">{item.name}</h3>
                     <div className="text-right">
                       <span className="text-xl font-extrabold text-primary-700">₹{item.rate}</span>
                       <span className="text-[11px] text-gray-500 block">/ sq ft</span>
@@ -328,7 +328,7 @@ export default function CostCalculator() {
         <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200/80 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-gray-200 pb-3">
             <div>
-              <h3 className="text-base font-bold text-gray-900 font-serif">
+              <h3 className="text-base font-bold text-gray-900">
                 Estimated Cost Distribution Breakdown
               </h3>
               <p className="text-xs text-gray-500">

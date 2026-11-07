@@ -64,6 +64,27 @@ const RESIDENTIAL_FAQS: FAQItem[] = [
   },
 ];
 
+const RESIDENTIAL_GALLERY = [
+  {
+    title: "Seismic Zone III Foundation and RCC Columns",
+    desc: "Heavy plinth beams, anti-termite plinth protection, and cured RCC columns engineered strictly to IS:456 standards.",
+    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&q=80&w=800",
+    tag: "Civil and Structural",
+  },
+  {
+    title: "Signature Contemporary Elevation and Glass Balconies",
+    desc: "Modern front facades with exterior weather-proof coatings, timber-finish rafters, and toughened glass railings.",
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=800",
+    tag: "Elevation Design",
+  },
+  {
+    title: "Premium Living Room Finishing and Vitrified Flooring",
+    desc: "Large-format 4x2 ft vitrified tile flooring, concealed Havells conduit wiring, and smooth Asian Paints Royale emulsion.",
+    image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800",
+    tag: "Interior Finishing",
+  },
+];
+
 const PACKAGES = [
   {
     name: "Standard Build",
@@ -72,11 +93,11 @@ const PACKAGES = [
     desc: "Robust engineering for budget-conscious families seeking durable construction.",
     features: [
       "RCC Framed Structure (IS 456 Compliant)",
-      "UltraTech / ACC Cement & Fe550 TMT Steel",
+      "UltraTech / ACC Cement and Fe550 TMT Steel",
       "Red Clay Bricks / First-Class AAC Blocks",
       "Vitrified Flooring (2x2 ft branded tiles)",
       "Asian Paints Tractor Emulsion (Internal)",
-      "Standard Branded Bath Fittings & CPVC Pipes",
+      "Standard Branded Bath Fittings and CPVC Pipes",
       "10-Year Structural Guarantee",
     ],
     popular: false,
@@ -90,9 +111,9 @@ const PACKAGES = [
       "Heavy RCC Structure with Anti-Termite Treatment",
       "Tata Tiscon / Jindal Panther Fe550D Steel",
       "Large Format 4x2 ft Glazed Vitrified Tiles (GVT)",
-      "Jaquar / Kohler CP & Sanitary Ware",
+      "Jaquar / Kohler CP and Sanitary Ware",
       "Asian Paints Royale Luxury Emulsion + Apex Exterior",
-      "Modular Kitchen Carcass & Teak Frame Flush Doors",
+      "Modular Kitchen Carcass and Teak Frame Flush Doors",
       "Havells / Polycab Flame-Retardant Concealed Wiring",
       "15-Year Structural Warranty + 1-Yr Free Maintenance",
     ],
@@ -106,11 +127,11 @@ const PACKAGES = [
     features: [
       "Custom 3D Elevation with Double-Height Foyer",
       "Italian Marble / Large Slabs for Living Areas",
-      "Kohler / Grohe Thermostatic Bath Showers & Vanity",
-      "Burma Teakwood Main Door & UPVC Soundproof Windows",
+      "Kohler / Grohe Thermostatic Bath Showers and Vanity",
+      "Burma Teakwood Main Door and UPVC Soundproof Windows",
       "False Ceiling with Ambient LED Profile Lighting",
-      "Smart Home Automation Pre-Wiring & Solar Ready",
-      "Dedicated Project Manager & Daily Video Drone Audits",
+      "Smart Home Automation Pre-Wiring and Solar Ready",
+      "Dedicated Project Manager and Daily Video Drone Audits",
       "15-Year Comprehensive Structural Warranty",
     ],
     popular: false,
@@ -120,27 +141,27 @@ const PACKAGES = [
 const PROCESS_STEPS = [
   {
     step: "01",
-    title: "Site Survey & 3D Architectural Design",
+    title: "Site Survey and 3D Architectural Design",
     desc: "Soil testing, Vastu-compliant 2D space planning, structural engineering, and realistic 3D elevation walkthroughs.",
   },
   {
     step: "02",
-    title: "LDA Clearances & Transparent BOQ",
+    title: "LDA Clearances and Transparent BOQ",
     desc: "Transparent itemized Bill of Quantities (BOQ) with fixed material specs and assistance with municipal approvals.",
   },
   {
     step: "03",
-    title: "Civil Foundation & RCC Framing",
+    title: "Civil Foundation and RCC Framing",
     desc: "Excavation, anti-termite treatment, heavy column plinth beams, and cured RCC slabs tested for compressive strength.",
   },
   {
     step: "04",
-    title: "Brickwork, Concealed MEP & Plastering",
+    title: "Brickwork, Concealed MEP and Plastering",
     desc: "Masonry, electrical conduit installation, concealed plumbing with pressure testing, and smooth waterproof plaster.",
   },
   {
     step: "05",
-    title: "Finishing, 400+ Quality Checks & Handover",
+    title: "Finishing, 400+ Quality Checks and Handover",
     desc: "Flooring, paint, designer doors, sanitary installation, rigorous 400+ quality checklist, and ceremonial key handover.",
   },
 ];
@@ -164,7 +185,7 @@ export default function ResidentialConstructionPage() {
   return (
     <LandingPageLayout pageName="Residential Construction Lucknow">
       {/* Hero Section */}
-      <section className="relative bg-white text-gray-900 pt-8 pb-16 overflow-hidden">
+      <section className="relative bg-white text-gray-900 pt-8 pb-16 overflow-hidden border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
@@ -174,7 +195,7 @@ export default function ResidentialConstructionPage() {
                 Trusted by 350+ Homeowners in Lucknow | 15+ Years Experience
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight text-gray-900">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-tight">
                 Leading <span className="text-amber-500">Residential Construction</span> Company in Lucknow
               </h1>
 
@@ -218,14 +239,28 @@ export default function ResidentialConstructionPage() {
               </div>
             </div>
 
-            {/* Right Lead Capture Box */}
-            <div id="lead-form-section" className="lg:col-span-5 scroll-mt-24">
+            {/* Right Lead Capture Box with Visual */}
+            <div id="lead-form-section" className="lg:col-span-5 space-y-6">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 group">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1200"
+                  alt="Modern House Construction Lucknow"
+                  className="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent flex items-end p-5">
+                  <div className="text-white">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-amber-400">Featured Residence</span>
+                    <h3 className="text-lg font-bold">Custom 3-Story Independent Home • Gomti Nagar</h3>
+                  </div>
+                </div>
+              </div>
+
               <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-xl text-gray-900 border border-gray-200">
                 <div className="mb-5 text-center">
                   <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
                     Instant Estimate
                   </span>
-                  <h2 className="text-xl sm:text-2xl font-bold font-serif text-gray-900 mt-2">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mt-2">
                     Request Free Site Inspection
                   </h2>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">
@@ -236,7 +271,7 @@ export default function ResidentialConstructionPage() {
                 <EnquiryForm
                   sourcePage="Residential Construction Lucknow - Hero Form"
                   defaultService="Residential Home Construction"
-                  buttonText="Get Free Quotation & Site Visit"
+                  buttonText="Get Free Quotation and Site Visit"
                 />
               </div>
             </div>
@@ -244,63 +279,118 @@ export default function ResidentialConstructionPage() {
         </div>
       </section>
 
-      {/* Pricing Packages */}
-      <section className="py-20 bg-gray-50">
+      {/* Visual Showcase Gallery */}
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
-              Transparent Per Sq Ft Rates
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
-              Residential Construction Packages in Lucknow
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs uppercase tracking-wider text-amber-600 font-bold">Engineering in Action</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-2">
+              Residential Construction Milestones
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base mt-3">
-              Clear, all-inclusive pricing with certified materials. No hidden fees or surprise revisions.
+            <p className="text-gray-600 mt-3 text-sm sm:text-base">
+              From heavy concrete foundations to elegant elevations and flawless internal finishes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PACKAGES.map((pkg, idx) => (
+            {RESIDENTIAL_GALLERY.map((item, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition-shadow group flex flex-col"
+              >
+                <div className="relative overflow-hidden h-56">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute top-3 left-3 bg-black/75 text-amber-400 text-xs font-semibold px-2.5 py-1 rounded-full backdrop-blur-sm">
+                    {item.tag}
+                  </span>
+                </div>
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-lg font-bold text-gray-900 group-hover:text-amber-600 transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Packages */}
+      <section className="py-20 bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
+              Transparent Pricing
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
+              House Construction Packages in Lucknow
+            </h2>
+            <p className="text-gray-600 text-sm sm:text-base mt-3">
+              All-inclusive per sq ft construction rates. No hidden extras, no cost escalations halfway through your build.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PACKAGES.map((pkg) => (
               <div
                 key={pkg.name}
-                className={`relative rounded-3xl p-7 transition-all duration-300 flex flex-col justify-between ${
+                className={`relative rounded-3xl p-8 transition-all flex flex-col justify-between ${
                   pkg.popular
-                    ? "bg-white border-2 border-primary-600 shadow-2xl shadow-primary-900/10 scale-105 z-10"
-                    : "bg-white border border-gray-200 shadow-sm hover:shadow-md"
+                    ? "bg-gradient-to-b from-gray-900 to-gray-800 text-white shadow-2xl scale-105 border-2 border-primary-500"
+                    : "bg-white text-gray-900 border border-gray-200 shadow-sm hover:shadow-md"
                 }`}
               >
                 {pkg.popular && (
-                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary-600 text-white text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full shadow-md">
-                    Most Popular Choice
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-black text-xs font-black uppercase tracking-wider py-1 px-4 rounded-full shadow-md">
+                    Most Popular
                   </div>
                 )}
 
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 font-serif">{pkg.name}</h3>
-                  <p className="text-xs text-gray-500 mt-1 min-h-[32px]">{pkg.desc}</p>
+                  <h3 className="text-xl font-bold">{pkg.name}</h3>
+                  <p className={`text-xs mt-1 ${pkg.popular ? "text-gray-300" : "text-gray-500"}`}>
+                    {pkg.desc}
+                  </p>
 
-                  <div className="mt-5 pb-5 border-b border-gray-100">
-                    <span className="text-4xl font-bold text-gray-900">{pkg.price}</span>
-                    <span className="text-gray-500 text-xs ml-2 font-medium">{pkg.unit}</span>
+                  <div className="mt-5 pb-5 border-b border-gray-200/20">
+                    <span className="text-4xl font-extrabold tracking-tight">{pkg.price}</span>
+                    <span className={`text-xs ml-1 ${pkg.popular ? "text-gray-300" : "text-gray-500"}`}>
+                      {pkg.unit}
+                    </span>
                   </div>
 
-                  <ul className="mt-6 space-y-3">
-                    {pkg.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-700">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
+                  <ul className="mt-6 space-y-3 text-xs sm:text-sm">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2.5">
+                        <CheckCircle2
+                          className={`w-4 h-4 shrink-0 mt-0.5 ${
+                            pkg.popular ? "text-amber-400" : "text-emerald-600"
+                          }`}
+                        />
+                        <span className={pkg.popular ? "text-gray-200" : "text-gray-700"}>
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-8 pt-6 border-t border-gray-100">
+                <div className="mt-8 pt-4">
                   <a
                     href="#lead-form-section"
-                    className={`w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-sm font-semibold transition-all ${
+                    className={`w-full inline-flex items-center justify-center gap-2 py-3 px-5 rounded-full text-xs sm:text-sm font-semibold transition-all ${
                       pkg.popular
-                        ? "bg-primary-600 hover:bg-primary-700 text-white shadow-md shadow-primary-600/20"
-                        : "bg-gray-100 hover:bg-gray-200 text-gray-800"
+                        ? "bg-amber-400 hover:bg-amber-300 text-black shadow-lg"
+                        : "bg-gray-900 hover:bg-black text-white"
                     }`}
                   >
                     Select {pkg.name}
@@ -314,33 +404,30 @@ export default function ResidentialConstructionPage() {
       </section>
 
       {/* 5-Step Process */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
-              Seamless Execution
+              Engineered Execution
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
-              Our 5-Step Engineering & Construction Process
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
+              Our 5-Step Construction Process
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base mt-3">
-              From soil excavation to your Gruha Pravesh — we ensure rigorous civil engineering at every stage.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
             {PROCESS_STEPS.map((step) => (
               <div
                 key={step.step}
-                className="bg-gray-50 hover:bg-primary-50/40 border border-gray-200/80 rounded-2xl p-6 transition-all hover:scale-[1.02]"
+                className="bg-white rounded-2xl p-6 border border-gray-200 shadow-xs relative"
               >
-                <div className="text-3xl font-extrabold text-primary-600 font-serif">
+                <div className="text-3xl font-extrabold text-primary-600">
                   {step.step}
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mt-3 font-serif">
+                <h3 className="text-base font-bold text-gray-900 mt-3">
                   {step.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 mt-2 leading-relaxed">
+                <p className="text-xs text-gray-600 mt-2 leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -349,25 +436,20 @@ export default function ResidentialConstructionPage() {
         </div>
       </section>
 
-      {/* Lucknow Locations Served */}
-      <section className="py-16 bg-primary-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold font-serif">
-              Constructing Premium Homes Across All Prime Locations in Lucknow
-            </h2>
-            <p className="text-primary-200 text-sm mt-2">
-              Our civil engineers supervise active construction sites across major residential hubs.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-3">
-            {LOCATIONS.map((loc) => (
+      {/* Locations */}
+      <section className="py-14 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">Prime Localities</span>
+          <h2 className="text-2xl sm:text-3xl font-extrabold mt-2 text-white">
+            Where We Build in Lucknow
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-8">
+            {LOCATIONS.map((loc, idx) => (
               <div
-                key={loc}
-                className="flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/15 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors"
+                key={idx}
+                className="flex items-center justify-center gap-2 bg-gray-800/80 border border-gray-700 rounded-xl p-3 text-xs sm:text-sm font-medium text-gray-200 text-center"
               >
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                 <span>{loc}</span>
               </div>
             ))}
@@ -375,40 +457,20 @@ export default function ResidentialConstructionPage() {
         </div>
       </section>
 
-      {/* FAQ Accordion */}
-      <FAQSection
-        title="Residential House Construction FAQs — Lucknow"
-        subtitle="Got questions before building your house in Lucknow? Here are verified answers from our senior engineers."
-        faqs={RESIDENTIAL_FAQS}
-      />
-
-      {/* Bottom CTA Banner */}
-      <section className="py-14 bg-gray-900 text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif">
-            Ready to Build Your Home in Lucknow with Complete Peace of Mind?
-          </h2>
-          <p className="text-gray-400 text-sm sm:text-base">
-            Speak directly with our Chief Civil Engineer today or visit our ongoing site in Gomti Nagar.
-          </p>
-          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href={`tel:${SITE_CONFIG.phoneTel}`}
-              className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-500 text-white font-semibold px-6 py-3 rounded-full text-sm shadow-lg transition-transform hover:scale-105"
-            >
-              <Phone className="w-4 h-4" />
-              Call Directly: {SITE_CONFIG.phoneDisplay}
-            </a>
-            <a
-              href="#lead-form-section"
-              className="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-100 font-semibold px-6 py-3 rounded-full text-sm transition-transform hover:scale-105"
-            >
-              Fill Quick Enquiry Form
-            </a>
+      {/* FAQs */}
+      <section className="py-20 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
+              Got Questions?
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-2">
+              Residential Construction FAQs
+            </h2>
           </div>
+          <FAQSection faqs={RESIDENTIAL_FAQS} />
         </div>
       </section>
     </LandingPageLayout>
   );
 }
-

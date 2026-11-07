@@ -99,7 +99,7 @@ export default function ContactSection() {
               Get In Touch
             </span>
           </div>
-          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-6 font-serif">
+          <h2 className="text-4xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight">
             Let&apos;s Build Your <span className="text-primary-600">Dream</span>
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -111,7 +111,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <AnimatedSection animation="slideLeft" className="lg:col-span-2">
             <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 font-serif">Send us a message</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
@@ -256,7 +256,7 @@ export default function ContactSection() {
 
             {/* Why Choose Us */}
             <div className="bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm space-y-4">
-              <h4 className="text-gray-900 font-bold text-lg font-serif">Why Choose Estarra?</h4>
+              <h4 className="text-gray-900 font-bold text-lg">Why Choose Estarra?</h4>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
@@ -284,7 +284,7 @@ export default function ContactSection() {
         {/* Final CTA Banner */}
         <AnimatedSection animation="fadeIn" delay={300} className="text-center mt-16">
           <div className="bg-gradient-to-r from-primary-50 via-luxury-50 to-primary-50 rounded-3xl p-8 sm:p-10 border border-primary-100 shadow-sm">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3 font-serif">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mb-3">
               Ready to Get Started?
             </h3>
             <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm sm:text-base">

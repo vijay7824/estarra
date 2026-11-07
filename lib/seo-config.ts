@@ -68,5 +68,102 @@ export const SEO_PAGES = {
       "house construction cost calculator lucknow"
     ],
   },
+  villa: {
+    path: "/villa-construction-lucknow",
+    title: "Luxury Villa and Duplex Construction in Lucknow | Estarra",
+    h1: "Luxury Villa and Duplex Construction Company in Lucknow",
+    description: "Premier bespoke villa and modern duplex home construction in Lucknow. Signature elevations, Italian marble, smart automation, and 15-year structural warranty.",
+    canonical: `${SITE_CONFIG.siteUrl}/villa-construction-lucknow`,
+    keywords: [
+      "villa construction lucknow",
+      "luxury villa builders lucknow",
+      "duplex house construction lucknow",
+      "modern bungalow construction gomti nagar",
+      "luxury home construction sushant golf city"
+    ],
+  },
+  commercial: {
+    path: "/commercial-construction-lucknow",
+    title: "Commercial Building Construction Company in Lucknow | Estarra",
+    h1: "Commercial Building and Complex Construction in Lucknow",
+    description: "Expert commercial building contractors in Lucknow. Construction of retail showrooms, corporate offices, institutional buildings, and commercial complexes with full LDA compliance.",
+    canonical: `${SITE_CONFIG.siteUrl}/commercial-construction-lucknow`,
+    keywords: [
+      "commercial construction company in lucknow",
+      "commercial building contractor lucknow",
+      "office construction lucknow",
+      "showroom construction gomti nagar",
+      "commercial builder shaheed path"
+    ],
+  },
+  architecture: {
+    path: "/architecture-planning-lucknow",
+    title: "Architects and 3D House Planning in Lucknow | Estarra",
+    h1: "Architectural Design, 3D Elevation and Planning in Lucknow",
+    description: "Licensed architects and structural engineers in Lucknow. Vastu-compliant 2D space planning, 3D modern elevations, structural design, and LDA map approval facilitation.",
+    canonical: `${SITE_CONFIG.siteUrl}/architecture-planning-lucknow`,
+    keywords: [
+      "architects in lucknow",
+      "3d elevation design lucknow",
+      "house plan design lucknow",
+      "lda map approval architect lucknow",
+      "vastu house design lucknow"
+    ],
+  },
+  interior: {
+    path: "/interior-design-lucknow",
+    title: "Luxury Interior Design and Execution in Lucknow | Estarra",
+    h1: "Complete Interior Design and Execution in Lucknow",
+    description: "Turnkey luxury interior design services in Lucknow. Bespoke modular kitchens, designer wardrobes, false ceiling lighting, and premium Italian finishes.",
+    canonical: `${SITE_CONFIG.siteUrl}/interior-design-lucknow`,
+    keywords: [
+      "interior design lucknow",
+      "interior designers in gomti nagar",
+      "modular kitchen lucknow",
+      "luxury home interiors lucknow",
+      "turnkey interior contractor lucknow"
+    ],
+  },
+  renovation: {
+    path: "/renovation-remodeling-lucknow",
+    title: "Home Renovation and Floor Addition in Lucknow | Estarra",
+    h1: "Home Renovation, Remodeling and Floor Addition in Lucknow",
+    description: "Transform your existing house with Estarra. Structural remodeling, additional floor construction, kitchen and bathroom redesign, and waterproofing in Lucknow.",
+    canonical: `${SITE_CONFIG.siteUrl}/renovation-remodeling-lucknow`,
+    keywords: [
+      "home renovation lucknow",
+      "house remodeling contractor lucknow",
+      "floor addition construction lucknow",
+      "kitchen bathroom renovation lucknow",
+      "building restoration lucknow"
+    ],
+  },
+  pmc: {
+    path: "/project-management-consulting-lucknow",
+    title: "Construction Project Management and Consulting Lucknow | Estarra",
+    h1: "Construction Project Management and Civil Consulting in Lucknow",
+    description: "Independent civil engineering supervision, structural health audits, BOQ verification, and construction project management (PMC) services in Lucknow.",
+    canonical: `${SITE_CONFIG.siteUrl}/project-management-consulting-lucknow`,
+    keywords: [
+      "construction project management lucknow",
+      "civil engineering consultant lucknow",
+      "construction quality audit lucknow",
+      "pmc contractor lucknow",
+      "site supervision engineer lucknow"
+    ],
+  },
+  guide: {
+    path: "/home-building-guide-lucknow",
+    title: "Complete Home Building Guide Lucknow (2025-2026) | Estarra",
+    h1: "Step-by-Step House Construction Guide for Lucknow Homeowners",
+    description: "The definitive guide to building a house in Lucknow. Soil testing, LDA approvals, budget planning, material selection, contractor comparison, and handover checklists.",
+    canonical: `${SITE_CONFIG.siteUrl}/home-building-guide-lucknow`,
+    keywords: [
+      "home building guide lucknow",
+      "how to build house in lucknow",
+      "house construction process lucknow",
+      "lda map sanction rules lucknow",
+      "construction checklist lucknow"
+    ],
+  },
 };
-

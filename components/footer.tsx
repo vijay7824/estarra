@@ -13,22 +13,23 @@ export default function Footer() {
   };
 
   const services = [
-    { name: "Residential Construction (Lucknow)", href: "/residential-construction-lucknow" },
+    { name: "Residential Construction", href: "/residential-construction-lucknow" },
     { name: "Turnkey House Construction", href: "/turnkey-construction-lucknow" },
-    { name: "House Construction Cost Calculator", href: "/house-construction-cost-lucknow" },
-    { name: "Commercial Buildings", href: "/#services" },
-    { name: "Renovation & Restoration", href: "/#services" },
-    { name: "Interior Design & Architecture", href: "/#services" },
+    { name: "Villa Construction", href: "/villa-construction-lucknow" },
+    { name: "Commercial Construction", href: "/commercial-construction-lucknow" },
+    { name: "Architecture and Planning", href: "/architecture-planning-lucknow" },
+    { name: "Interior Design and Execution", href: "/interior-design-lucknow" },
+    { name: "Renovation and Remodeling", href: "/renovation-remodeling-lucknow" },
+    { name: "Project Management and Consulting", href: "/project-management-consulting-lucknow" },
   ];
 
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "Residential Construction", href: "/residential-construction-lucknow" },
-    { name: "Turnkey Projects", href: "/turnkey-construction-lucknow" },
     { name: "Cost Calculator (Lucknow)", href: "/house-construction-cost-lucknow" },
-    { name: "Projects", href: "/#projects" },
-    { name: "About Us", href: "/#about" },
-    { name: "Contact & Free Quote", href: "/#contact" }
+    { name: "Home Building Guide", href: "/home-building-guide-lucknow" },
+    { name: "Featured Projects", href: "/#projects" },
+    { name: "About Estarra", href: "/#about" },
+    { name: "Contact and Free Quote", href: "/#contact" }
   ];
 
   return (
@@ -43,7 +44,7 @@ export default function Footer() {
           <div className="lg:col-span-1 space-y-6">
             <div className="flex items-center gap-3">
               <div>
-                <h3 className="text-xl font-bold font-serif">Estarra</h3>
+                <h3 className="text-xl font-bold">Estarra</h3>
                 <p className="text-gray-300 text-sm font-semibold">Shine Higher</p>
               </div>
             </div>
@@ -57,7 +58,7 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white font-serif">Our Services</h4>
+            <h4 className="text-lg font-bold text-white">Our Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
@@ -74,7 +75,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white font-serif">Quick Links</h4>
+            <h4 className="text-lg font-bold text-white">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -91,7 +92,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-lg font-bold text-white font-serif">Get In Touch</h4>
+            <h4 className="text-lg font-bold text-white">Get In Touch</h4>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />

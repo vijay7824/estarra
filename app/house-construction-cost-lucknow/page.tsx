@@ -119,7 +119,7 @@ export default function ConstructionCostCalculatorPage() {
               Lucknow 2025-2026 Construction Cost Guide
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight text-gray-900">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-gray-900">
               House Construction Cost in Lucknow — <span className="text-amber-500">Per Sq Ft Calculator</span>
             </h1>
 
@@ -142,7 +142,7 @@ export default function ConstructionCostCalculatorPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
               Engineering Insights
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
               Key Factors Influencing House Construction Costs in Lucknow
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mt-3">
@@ -155,8 +155,8 @@ export default function ConstructionCostCalculatorPage() {
               <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-700">
                 <Building2 className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 font-serif">
-                1. Local Soil & Foundation Depth
+              <h3 className="text-lg font-bold text-gray-900">
+                1. Local Soil and Foundation Depth
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 Areas near the Gomti River basin (Gomti Nagar Extension, Shaheed Path) have high clay content requiring deeper excavation, plinth beams, and robust anti-termite treatment to prevent settlement cracks.
@@ -167,7 +167,7 @@ export default function ConstructionCostCalculatorPage() {
               <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-700">
                 <FileSpreadsheet className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 font-serif">
+              <h3 className="text-lg font-bold text-gray-900">
                 2. Raw Material Fluctuations
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -179,8 +179,8 @@ export default function ConstructionCostCalculatorPage() {
               <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-700">
                 <ShieldAlert className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 font-serif">
-                3. LDA & Municipal Clearances
+              <h3 className="text-lg font-bold text-gray-900">
+                3. LDA and Municipal Clearances
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 LDA (Lucknow Development Authority) sanction fees, compoundable area calculations, and structural vetting must be budgeted early to avoid construction halts or municipal notices.
@@ -197,7 +197,7 @@ export default function ConstructionCostCalculatorPage() {
             <span className="text-xs font-bold uppercase tracking-widest text-primary-700 bg-primary-50 px-3.5 py-1.5 rounded-full">
               Material Quality Specifications
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold font-serif text-gray-900 mt-3">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mt-3">
               Specification Comparison Matrix by Quality Tier
             </h2>
             <p className="text-gray-600 text-sm sm:text-base mt-3">
@@ -209,14 +209,14 @@ export default function ConstructionCostCalculatorPage() {
             <table className="w-full text-left border-collapse min-w-[700px]">
               <thead>
                 <tr className="bg-gray-900 text-white">
-                  <th className="py-4 px-6 text-sm font-semibold font-serif">Construction Aspect</th>
-                  <th className="py-4 px-6 text-sm font-semibold font-serif text-gray-200">
+                  <th className="py-4 px-6 text-sm font-semibold">Construction Aspect</th>
+                  <th className="py-4 px-6 text-sm font-semibold text-gray-200">
                     Standard (₹1,650/sqft)
                   </th>
-                  <th className="py-4 px-6 text-sm font-semibold font-serif text-amber-300 bg-gray-800">
+                  <th className="py-4 px-6 text-sm font-semibold text-amber-300 bg-gray-800">
                     Premium (₹1,950/sqft)
                   </th>
-                  <th className="py-4 px-6 text-sm font-semibold font-serif text-emerald-300">
+                  <th className="py-4 px-6 text-sm font-semibold text-emerald-300">
                     Ultra-Luxury (₹2,400+/sqft)
                   </th>
                 </tr>
@@ -246,7 +246,7 @@ export default function ConstructionCostCalculatorPage() {
               <span className="text-xs font-bold uppercase tracking-wider text-primary-600 bg-primary-50 px-3 py-1 rounded-full">
                 Custom Engineering Quotation
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold font-serif text-gray-900 mt-3">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 mt-3">
                 Request an Itemized Bill of Quantities (BOQ)
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 mt-2">
@@ -273,7 +273,7 @@ export default function ConstructionCostCalculatorPage() {
       {/* Bottom CTA Banner */}
       <section className="py-14 bg-gray-900 text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-          <h2 className="text-2xl sm:text-3xl font-bold font-serif">
+          <h2 className="text-2xl sm:text-3xl font-extrabold">
             Want to Discuss Your Plot and Construction Budget?
           </h2>
           <p className="text-gray-400 text-sm sm:text-base">
