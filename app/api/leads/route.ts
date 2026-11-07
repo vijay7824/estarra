@@ -37,7 +37,7 @@ export async function POST(request: Request) {
     const validatedData = insertLeadSchema.parse(leadData);
     const savedLead = await storage.createLead(validatedData);
 
-    // Construct formatted WhatsApp message for +91 7392861099
+    // Construct formatted WhatsApp message for +91 78000 74443
     const formattedDate = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
     const waText = 
       `*New Estarra Construction Lead (Lucknow)*\n\n` +
@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       `📄 *Source Page:* ${savedLead.sourcePage || 'Website'}\n` +
       `⏰ *Received:* ${formattedDate}`;
 
-    const whatsappUrl = `https://wa.me/917392861099?text=${encodeURIComponent(waText)}`;
+    const whatsappUrl = `https://wa.me/917800074443?text=${encodeURIComponent(waText)}`;
 
     // Optional: If a server-side webhook is configured in env, forward the lead
     const webhookUrl = process.env.WHATSAPP_WEBHOOK_URL || process.env.LEAD_WEBHOOK_URL;
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          recipient: "917392861099",
+          recipient: "917800074443",
           message: waText,
           lead: savedLead,
         }),
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: "Lead saved successfully and queued for WhatsApp (+91 7392861099)!",
+      message: "Lead saved successfully and queued for WhatsApp (+91 78000 74443)!",
       lead: savedLead,
       whatsappUrl,
       whatsappMessage: waText,

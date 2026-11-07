@@ -58,7 +58,7 @@ const CALCULATOR_FAQS: FAQItem[] = [
   {
     question: "How do I get a custom BOQ quotation for my plot in Lucknow?",
     answer:
-      "Simply input your plot dimensions into our calculator above and submit the enquiry form or call +91 7392861099. Our senior civil engineer will visit your plot in Lucknow for free soil assessment and provide an exact BOQ quotation.",
+      "Simply input your plot dimensions into our calculator above and submit the enquiry form or call +91 78000 74443. Our senior civil engineer will visit your plot in Lucknow for free soil assessment and provide an exact BOQ quotation.",
   },
 ];
 
@@ -288,7 +288,7 @@ export default function ConstructionCostCalculatorPage() {
               Call: {SITE_CONFIG.phoneDisplay}
             </a>
             <a
-              href={`https://wa.me/917392861099?text=${encodeURIComponent(
+              href={`https://wa.me/917800074443?text=${encodeURIComponent(
                 "Hi Estarra, I want to discuss construction cost for my plot in Lucknow."
               )}`}
               target="_blank"

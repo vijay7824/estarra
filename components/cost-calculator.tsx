@@ -161,7 +161,7 @@ export default function CostCalculator() {
       `• Estimated Total: ${formatINR(totalEstimatedCost)} (${formatLakhs(totalEstimatedCost)})\n\n` +
       `Please share a detailed itemized BOQ for my site in Lucknow.`
     );
-    window.open(`https://wa.me/917392861099?text=${text}`, "_blank");
+    window.open(`https://wa.me/917800074443?text=${text}`, "_blank");
     trackEvent("whatsapp_clicked", { source_page: "Cost Calculator - Share Quote" });
   };
 

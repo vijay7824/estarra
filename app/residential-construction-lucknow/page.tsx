@@ -68,7 +68,7 @@ const RESIDENTIAL_GALLERY = [
   {
     title: "Seismic Zone III Foundation and RCC Columns",
     desc: "Heavy plinth beams, anti-termite plinth protection, and cured RCC columns engineered strictly to IS:456 standards.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800",
     tag: "Civil and Structural",
   },
   {

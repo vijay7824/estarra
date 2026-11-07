@@ -70,7 +70,7 @@ const TURNKEY_GALLERY = [
   {
     title: "100% Managed Material Procurement",
     desc: "Certified Grade-A cement, Tata Tiscon steel, and factory-tested materials delivered and stored with zero hassle for the homeowner.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80&w=800",
     tag: "Material Logistics",
   },
   {

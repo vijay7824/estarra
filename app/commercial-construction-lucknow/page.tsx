@@ -64,7 +64,7 @@ const COMMERCIAL_GALLERY = [
   {
     title: "Column-Free Large Span RCC Framing",
     desc: "Heavy-load post-tensioned beam design maximizing open carpet area for flexible corporate office and retail showroom layouts.",
-    image: "https://images.unsplash.com/photo-1541888946425-d0fbb186f5f7?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800",
     tag: "Civil and Structural",
   },
   {

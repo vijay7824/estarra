@@ -35,10 +35,11 @@ const contactInfo = [
 export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    phone: "",
-    project: "",
+    service: "Residential Construction",
+    location: "",
+    area: "",
     budget: "",
+    phone: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,26 +49,46 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const cleanPhone = formData.phone.replace(/\D/g, "");
+    if (cleanPhone.length < 10) {
+      toast({
+        title: "Invalid Phone Number",
+        description: "Please enter a valid 10-digit mobile number.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/leads', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim() || 'Prospective Client',
+          phone: cleanPhone,
+          service: formData.service,
+          location: formData.location.trim() || 'Lucknow',
+          area: formData.area ? `${formData.area} sq ft` : undefined,
+          budget: formData.budget && formData.budget !== "Select..." ? formData.budget : undefined,
+          sourcePage: "Contact Section - Send Us A Message",
+        }),
       });
 
       if (response.ok) {
         toast({
           title: "Message sent successfully!",
-          description: "We'll get back to you within 24 hours.",
+          description: "Our engineering desk has received your request and will contact you within 24 hours.",
         });
         setFormData({
           name: "",
-          email: "",
-          phone: "",
-          project: "",
+          service: "Residential Construction",
+          location: "",
+          area: "",
           budget: "",
+          phone: "",
           message: ""
         });
       } else {
@@ -112,98 +133,110 @@ export default function ContactSection() {
           <AnimatedSection animation="slideLeft" className="lg:col-span-2">
             <div className="bg-white rounded-3xl p-8 sm:p-10 border border-gray-200 shadow-xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-gray-700 text-sm font-semibold mb-2">Name *</label>
-                    <Input
-                      type="text"
-                      value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
-                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
-                      placeholder="Your full name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 text-sm font-semibold mb-2">Email *</label>
-                    <Input
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
-                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
-                      placeholder="your@email.com"
-                      required
-                    />
-                  </div>
-                </div>
-                
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-gray-700 text-sm font-semibold mb-2">Phone</label>
-                    <Input
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                      className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 h-11"
-                      placeholder="+91 78000 74443"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 text-sm font-semibold mb-2">Project Type</label>
-                    <select
-                      value={formData.project}
-                      onChange={(e) => setFormData({...formData, project: e.target.value})}
-                      className="w-full h-11 px-3 bg-gray-50 border border-gray-300 rounded-md text-gray-900 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-sm"
-                    >
-                      <option value="">Select project type</option>
-                      <option value="residential">Residential Construction</option>
-                      <option value="commercial">Commercial Building</option>
-                      <option value="turnkey">Turnkey Project</option>
-                      <option value="renovation">Renovation</option>
-                      <option value="interior">Interior Design</option>
-                      <option value="consulting">Project Management</option>
-                    </select>
-                  </div>
-                </div>
-                
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* 1. Full name */}
                 <div>
-                  <label className="block text-gray-700 text-sm font-semibold mb-2">Budget Range</label>
-                  <select
-                    value={formData.budget}
-                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
-                    className="w-full h-11 px-3 bg-gray-50 border border-gray-300 rounded-md text-gray-900 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-sm"
-                  >
-                    <option value="">Select budget range</option>
-                    <option value="5-10lakhs">₹5-10 Lakhs</option>
-                    <option value="10-25lakhs">₹10-25 Lakhs</option>
-                    <option value="25-50lakhs">₹25-50 Lakhs</option>
-                    <option value="50lakhs+">₹50+ Lakhs</option>
-                    <option value="custom">Custom Quote</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-gray-700 text-sm font-semibold mb-2">Message *</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    className="bg-gray-50 border-gray-300 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-primary-600 focus:ring-1 focus:ring-primary-600 min-h-32 text-sm"
-                    placeholder="Tell us about your project requirements, timeline, and any specific needs..."
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Full name *</label>
+                  <Input
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                    className="w-full h-11 px-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm"
+                    placeholder="e.g. Rahul Verma"
                     required
                   />
                 </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4 pt-2">
+
+                {/* 2. Construction service */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Construction service</label>
+                  <select
+                    value={formData.service}
+                    onChange={(e) => setFormData({...formData, service: e.target.value})}
+                    className="w-full h-11 px-4 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none text-sm"
+                  >
+                    <option value="Residential Construction">Residential Construction</option>
+                    <option value="Turnkey Construction">Turnkey Construction</option>
+                    <option value="Villa Construction">Villa Construction</option>
+                    <option value="Commercial Construction">Commercial Construction</option>
+                    <option value="Architecture & Planning">Architecture & Planning</option>
+                    <option value="Interior Design & Execution">Interior Design & Execution</option>
+                    <option value="Renovation & Remodeling">Renovation & Remodeling</option>
+                    <option value="Project Management & Consulting">Project Management & Consulting</option>
+                  </select>
+                </div>
+
+                {/* 3. Plot location */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Plot location *</label>
+                  <Input
+                    type="text"
+                    value={formData.location}
+                    onChange={(e) => setFormData({...formData, location: e.target.value})}
+                    className="w-full h-11 px-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm"
+                    placeholder="e.g. Gomti Nagar, Lucknow"
+                    required
+                  />
+                </div>
+
+                {/* 4. Approximate built-up area (sq.ft.) */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Approximate built-up area (sq.ft.)</label>
+                  <Input
+                    type="text"
+                    value={formData.area}
+                    onChange={(e) => setFormData({...formData, area: e.target.value})}
+                    className="w-full h-11 px-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm"
+                    placeholder="e.g. 2000"
+                  />
+                </div>
+
+                {/* 5. Approximate budget */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Approximate budget</label>
+                  <select
+                    value={formData.budget}
+                    onChange={(e) => setFormData({...formData, budget: e.target.value})}
+                    className="w-full h-11 px-4 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 focus:outline-none text-sm"
+                  >
+                    <option value="">Select...</option>
+                    <option value="Under ₹30 Lakhs">Under ₹30 Lakhs</option>
+                    <option value="₹30 Lakhs - ₹50 Lakhs">₹30 Lakhs - ₹50 Lakhs</option>
+                    <option value="₹50 Lakhs - ₹80 Lakhs">₹50 Lakhs - ₹80 Lakhs</option>
+                    <option value="₹80 Lakhs - ₹1.5 Crore">₹80 Lakhs - ₹1.5 Crore</option>
+                    <option value="Above ₹1.5 Crore">Above ₹1.5 Crore</option>
+                  </select>
+                </div>
+
+                {/* 6. Phone number */}
+                <div>
+                  <label className="block text-gray-700 text-sm font-semibold mb-1.5">Phone number *</label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-sm font-medium">
+                      +91
+                    </span>
+                    <Input
+                      type="tel"
+                      required
+                      maxLength={10}
+                      value={formData.phone}
+                      onChange={(e) => setFormData({...formData, phone: e.target.value.replace(/\D/g, "")})}
+                      className="w-full h-11 pl-12 pr-4 rounded-xl border border-gray-300 bg-gray-50 text-gray-900 placeholder:text-gray-400 focus:bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 text-sm"
+                      placeholder="10-digit mobile number"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 pt-3">
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-primary-600 hover:bg-primary-700 text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-primary-600/30 hover:scale-105 transition-all flex items-center justify-center gap-2"
+                    className="bg-amber-500 hover:bg-amber-400 text-black font-bold py-3.5 px-8 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>
-                        <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                        Sending...
+                        <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                        Submitting...
                       </>
                     ) : (
                       <>
@@ -216,7 +249,7 @@ export default function ContactSection() {
                   <Button
                     type="button"
                     onClick={handleWhatsApp}
-                    className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3.5 px-8 rounded-full shadow-lg shadow-green-600/20 transition-all hover:scale-105 flex items-center justify-center gap-2"
+                    className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-3.5 px-8 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <MessageCircle className="w-4 h-4 fill-white" />
                     WhatsApp Us
