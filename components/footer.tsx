@@ -123,7 +123,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
                 <div>
-                  <span className="text-gray-300 text-sm">Gomti Nagar / Shaheed Path</span>
+                  <span className="text-gray-300 text-sm">Plot no 15 Banshi vihar Campwell Road Balaganj </span>
                   <p className="text-xs text-gray-400">Lucknow, Uttar Pradesh</p>
                 </div>
               </div>

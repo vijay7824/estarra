@@ -9,10 +9,10 @@ export const SITE_CONFIG = {
   whatsappUrl: "https://wa.me/917800074443",
   email: "info@estarra.in",
   address: {
-    street: "Gomti Nagar / Shaheed Path",
+    street: "Plot no 15 Banshi vihar Campwell Road Balaganj",
     city: "Lucknow",
     state: "Uttar Pradesh",
-    postalCode: "226010",
+    postalCode: "226003",
     country: "IN",
   },
   siteUrl: "https://estarra.in",
